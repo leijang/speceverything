@@ -9,11 +9,11 @@ description: "提交与推送（feature 交付流程的最末环节，feature-su
 
 ## 1. 时机与前置条件（不满足不提交）
 
-- **触发时机**：feature-summary 收口完成之后（复盘、沉淀清单、交接文档均已落盘）——收口阶段产生的规格修订、错题本、开发规范条款、skill 修订、交接文档等变更在此统一提交。
+- **触发时机**：feature-release-deploy 完成合并与发布（默认：合并 `develop` 并发布 `develop`）、feature-summary 收口完成之后——把全流程遗留的未提交变更（规格修订、错题本、开发规范、skill 修订、交接文档及收口期间发现的代码修复）统一提交推送。
 - **前置检查**：
-  1. 开发、验收、发布均已完成，证据与发布记录齐备；
+  1. 开发、验收、合并/发布均已完成，证据与发布记录齐备；
   2. `git status` 列出的未提交变更与收口阶段产物对应，无预期外文件；
-  3. 当前在需求分支上（模型见 feature-release-deploy §2）。
+  3. 当前仍在需求 worktree 的需求分支上（worktree 清理在本 skill 末尾执行，模型见 feature-release-deploy §2）。
 
 任一缺失：不提交，向用户报告缺什么。
 
@@ -22,7 +22,7 @@ description: "提交与推送（feature 交付流程的最末环节，feature-su
 - **变更清单核对**：`git status` 逐项核对——只允许出现当前需求关联文件；无关预存改动**不暂存、不撤销、不清理**，保持原样。
 - **秘密扫描**：检查 diff 中不包含连接串、口令、密钥、token、真实生产数据；发现即移出并改用环境变量或 secrets，不入库。
 - **验证基线**：提交前基于即将提交的完整结果跑一遍受影响范围的测试，确认全绿——不提交未验证的状态。
-- **worktree 身份**：确认当前在需求分支（分支名 = worktree 目录名，模型见 feature-release-deploy §2），不在 `develop`/`main` 上直接提交。
+- **worktree 身份**：确认当前在需求 worktree 的需求分支上（分支名 = worktree 目录名，模型见 feature-release-deploy §2），不在 `develop`/`main` 上直接提交。
 
 ## 3. 提交纪律（唯一定义处）
 
@@ -36,21 +36,32 @@ description: "提交与推送（feature 交付流程的最末环节，feature-su
 
 ## 4. 推送（强制核对）
 
-- 推送需求分支到远端：`git push -u origin <需求分支>`。
+- worktree 未清理（默认时序）时推送需求分支：`git push -u origin <需求分支>`。
 - 推送后核对：`git status` 显示与远端同步、无领先/落后；远端分支存在且最新提交哈希与本地一致。
 - **禁止 force push**；推送被拒时先拉取分析分叉原因，逐项解决后重新核对，不绕过。
+
+## 4.1 worktree 清理（强制，本 skill 末尾执行）
+
+提交推送完成并核对通过后，按 feature-release-deploy §2.1 的清理规则与检查清单删除该需求的 worktree：
+
+1. 核对停止仅属于该 worktree 的进程，备份需保留的数据、凭据与日志；
+2. 确认无未提交文件后，普通 `git worktree remove` 移除并核对 `git worktree list`；
+3. 远端需求分支同步删除（里程碑分支不受影响）；
+4. 需求数据库按 feature-release-deploy §2.2 随清理归档或移除，结果记入交付记录。
+
+清理受阻时记录阻塞并保留待办，禁止 `--force` 或递归删除绕过检查。
 
 ## 5. 完成记录
 
 在交付记录（或需求说明）登记：
 
-- 需求分支名、worktree 路径；
+- 在交付记录（或需求说明）登记需求分支名、worktree 路径及**清理结果**（移除时间、远端分支删除确认、需求数据库归档去向）。
 - 各提交哈希及提交信息（按业务/测试拆分时分别记录）；
 - 推送时间与远端分支。
 
 ## 6. 边界
 
-- **合并 develop → main、发布、worktree 清理**归 feature-release-deploy，本 skill 不做合并动作（这些环节在流程上先于本 skill 完成）。
+- **worktree 清理规则与检查清单**定义在 feature-release-deploy §2.1，但默认时序上**由本 skill 在提交推送完成后执行删除**；本 skill 不做合并与发布动作。
 - 收口后发现的代码缺陷走 bugfix-workflow，修复后重新走本 skill 的检查与提交。
 - 不修改需求内容：推送前若发现规格与实现不一致，先走变更/修复流程再回来提交。
 - 本环节完成后，方可在最终响应中宣告"该需求交付流程全部结束"。

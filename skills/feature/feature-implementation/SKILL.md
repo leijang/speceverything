@@ -30,7 +30,13 @@ description: "功能编码实现执行器（TDD 驱动）。读取任务规划�
 
 同时读取 `specs/PROJECT-CONTEXT.md` 是否存在，存在则按照该文档的内容进行操作(必须)
 
-开始编码前确认该需求已创建独立 worktree 与需求分支（一需求一 worktree：创建/隔离/清理规则见 feature-release-deploy §2）；复用已有需求的专属 worktree，禁止直接在主工作目录或集成分支上开发。
+开始编码前确认该需求的 worktree 与需求分支已就绪（创建/隔离/清理规则见 feature-release-deploy §2），按以下顺序判定：
+
+1. **已有专属 worktree 且空闲**（无未提交改动、无残留进程/端口占用、无其他会话正在使用）→ 直接复用，进入编码；
+2. **已有 worktree 但被占用**（其他会话正在使用，或有非本会话的未提交改动）→ 不得复用。按 feature-release-deploy §2 的并行粒度升级：为当前任务或变更（CR）新建单元 worktree（如 `codex/<需求编号>-CR<XXX>-<中文主题>`），再进入编码；
+3. **尚未创建** → 先按 feature-release-deploy §2 的命名规范（`codex/<需求编号>-<中文主题>`）创建需求 worktree，完成 detached HEAD 检查后再编码。
+
+禁止直接在主工作目录或集成分支上开发。
 
 ---
 
