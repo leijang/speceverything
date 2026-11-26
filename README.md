@@ -10,71 +10,71 @@ D:\Src\SpecEverything\V1.0\
 ├── README.md                        # 本文件：工作区总览
 │
 ├── specs/                           # 规格体系（唯一事实源）
-│   ├── PROJECT-CONTEXT.md           #   项目上下文强制协议（每个 skill 必读）
-│   ├── GUARDRAILS.md                #   边界守卫：阶段拦截规则与话术
-│   ├── 产品概述.md                  #   产品愿景/用户/场景（project 阶段产出）
-│   ├── 技术栈选型.md                #   技术选型结论
-│   ├── 项目目录结构.md              #   模块划分与依赖方向
-│   ├── 路线图.md                    #   开发顺序与里程碑
-│   ├── 开发规范.md                  #   代码规范 + AI 协作协议（§13 含错题本机制）
-│   ├── 错题本.md                    #   缺陷沉淀：现象/根因/修复/预防（可核对的拦截措施）
-│   ├── design/
-│   │   └── 架构.md                  #   全局架构图（Mermaid）+ 模块职责 + 依赖方向（spec-standards §9）
-│   └── features/
-│       ├── index.md                 #   需求索引：编号/名称/状态（规划中→…→已完成）
-│       ├── F001-实时题包-20261120/  #   每个需求一个独立目录（编号递增不复用）
-│       │   ├── 需求说明.md          #     主文档：AC-XXX（GWT，三类场景）
-│       │   ├── UI设计稿/            #     高保真原型 + 区域标注图（feature-hifi-design）
-│       │   ├── 技术方案.md          #     开发思路 + 架构图 + 数据流程图 + API/DB（tech-design）
-│       │   ├── 任务规划.md          #     Task-XX 垂直切片 + 验证标准 + 执行反省块
-│       │   ├── 变更任务_CR-001-XX.md#     变更登记（feature-evolution）
-│       │   ├── 编码复核.md            #     代码复核三维度结论（feature-code-review）
-│       │   ├── 验收截图/            #     F001-AC003-移动端选中状态.png（blackbox-test）
-│       │   ├── 过程复盘.md          #     效率损失排查 + 改进闭环（feature-summary）
-│       │   └── 交付记录.md          #     提交哈希/发布记录/种子评估结论
-│       └── F002-…/
+│  ├── PROJECT-CONTEXT.md           #   项目上下文强制协议（每个 skill 必读）
+│  ├── GUARDRAILS.md                #   边界守卫：阶段拦截规则与话术
+│  ├── 产品概述.md                  #   产品愿景/用户/场景（project 阶段产出）
+│  ├── 技术栈选型.md                #   技术选型结论
+│  ├── 项目目录结构.md              #   模块划分与依赖方向
+│  ├── 路线图.md                    #   开发顺序与里程碑
+│  ├── 开发规范.md                  #   代码规范 + AI 协作协议（§3 含错题本机制）
+│  ├── 错题本.md                    #   缺陷沉淀：现象/根因/修复/预防（可核对的拦截措施）
+│  ├── design/
+│  │  └── 架构.md                  #   全局架构图（Mermaid：模块职责 + 依赖方向（spec-standards §9）
+│  └── features/
+│      ├── index.md                 #   需求索引：编号/名称/状态（规划中→…→已完成）
+│      ├── F001-实时题包-20261120/  #   每个需求一个独立目录（编号递增不复用）
+│      │  ├── 需求说明.md          #     主文档：AC-XXX（GWT，三类场景）
+│      │  ├── UI设计稿/            #     高保真原型 + 区域标注图（feature-hifi-design）
+│      │  ├── 技术方案.md          #     开发思路 + 架构图 + 数据流程图 + API/DB（tech-design）
+│      │  ├── 任务规划.md          #     Task-XX 垂直切片 + 验证标准 + 执行反省块
+│      │  ├── 变更任务_CR-001-XX.md#     变更登记（feature-evolution）
+│      │  ├── 编码复核.md            #     代码复核三维度结论（feature-code-review）
+│      │  ├── 验收截图/            #     F001-AC003-移动端选中状态.png（blackbox-test）
+│      │  ├── 过程复盘.md          #     效率损失排查 + 改进闭环（feature-summary）
+│      │  └── 交付记录.md          #     提交哈希/发布记录/种子评估结论
+│      └── F002-…
 │
 ├── docs/
-│   └── 开发记录/
-│       └── F001-实时题包-20261120/  #   一需求一目录（与 specs/features 目录同名）
-│           ├── F001_阶段1_完成报告.md    #   阶段完成报告（feature-implementation）
-│           ├── F001_阶段2_完成报告.md
-│           └── 交接-F001清完.md          #   会话交接文档（feature-summary）
+│  └── 开发记录/
+│      └── F001-实时题包-20261120/  #   一需求一目录（与 specs/features 目录同名）
+│          ├── F001_阶段1_完成报告.md    #   阶段完成报告（feature-implementation）
+│          ├── F001_阶段2_完成报告.md
+│          └── 交接-F001清完.md          #   会话交接文档（feature-summary）
 │
 ├── skills/                          # Skill 库（本文档 §Skill 一览）
-│   ├── standard/
-│   │   └── spec-standards/          #   规格创建规范唯一定义处
-│   │       └── SKILL.md
-│   ├── bugfix-workflow/
-│   │   ├── SKILL.md                 #   Bug 修复：根因决策顺序/最小改动/不兜底
-│   │   └── assets/
-│   │       └── bugfix-report-template.md
-│   ├── feature/                     #   功能级：一个需求从生到死的各阶段执行器
-│   │   ├── feature-requirements-clarification/  # ① 需求对话与 AC
-│   │   ├── feature-hifi-design/                 # ② UI 设计稿（原型 + 标注图）
-│   │   ├── feature-tech-design/                 # ③ 技术方案（三要素 + 全局架构同步）
-│   │   ├── feature-task-planning/               # ④ 任务拆分（垂直切片）
-│   │   ├── feature-implementation/              # ⑤ TDD 实现（七问反省块）
-│   │   ├── feature-code-review/                  # ⑥ 代码复核（过度设计/架构/规范三维度）
-│   │   ├── feature-blackbox-test/                # ⑦ 真实用户模拟验收（证据双轨）
-│   │   ├── feature-release-deploy/              # ⑧/⑨ worktree 模型 + 上线发布
-│   │   ├── feature-summary/                     # ⑩ 复盘 + 沉淀 + 交接（含 2 个模板）
-│   │   ├── feature-commit-push/                 # ⑪ 提交与推送（最末环节）
-│   │   └── feature-evolution/                   # 变更流程（CR-XXX）
-│   └── project/                     #   项目级：启动与技术治理
-│       ├── project-requirements-clarification/  # 启动需求澄清
-│       ├── project-product-overview/            # 产品概述
-│       ├── project-tech-stack/                  # 技术选型
-│       ├── project-structure/                   # 目录结构（顺带建立全局架构）
-│       ├── project-roadmap-planning/            # 路线图
-│       ├── project-dev-standards/               # 开发规范（AI 协作协议）
-│       └── project-initialization/              # 初始化执行
+│  ├── standard/
+│  │  └── speceverything-spec-standards/          #   规格创建规范唯一定义处
+│  │      └── SKILL.md
+│  ├── speceverything-bugfix-workflow/
+│  │  ├── SKILL.md                 #   Bug 修复：根因决策顺序、最小改动、不兜底
+│  │  └── assets/
+│  │      └── bugfix-report-template.md
+│  ├── feature/                     #   功能级：一个需求从生到死的各阶段执行器
+│  │  ├── speceverything-feature-requirements-clarification/  # ① 需求对话与 AC
+│  │  ├── speceverything-feature-hifi-design/                 # ② UI 设计稿（原型 + 标注图）
+│  │  ├── speceverything-feature-tech-design/                 # ③ 技术方案（三要素 + 全局架构同步）
+│  │  ├── speceverything-feature-task-planning/               # ④ 任务拆分（垂直切片）
+│  │  ├── speceverything-feature-implementation/              # ⑤ TDD 实现（七问反省块）
+│  │  ├── speceverything-feature-code-review/                  # ⑥ 代码复核（过度设计/架构/规范三维度）
+│  │  ├── speceverything-feature-blackbox-test/                # ⑦ 真实用户模拟验收（证据双轨）
+│  │  ├── speceverything-feature-release-deploy/              # ⑧⑨ worktree 模型 + 上线发布
+│  │  ├── speceverything-feature-summary/                     # ⑩ 复盘 + 沉淀 + 交接（含 2 个模板）
+│  │  ├── speceverything-feature-commit-push/                 # ⑪ 提交与推送（最末环节）
+│  │  └── speceverything-feature-evolution/                   # 变更流程（CR-XXX）
+│  └── project/                     #   项目级：启动与技术治理
+│      ├── speceverything-project-requirements-clarification/  # 启动需求澄清
+│      ├── speceverything-project-product-overview/            # 产品概述
+│      ├── speceverything-project-tech-stack/                  # 技术选型
+│      ├── speceverything-project-structure/                   # 目录结构（顺带建立全局架构）
+│      ├── speceverything-project-roadmap-planning/            # 路线图
+│      ├── speceverything-project-dev-standards/               # 开发规范（AI 协作协议）
+│      └── speceverything-project-initialization/              # 初始化执行
 │
 ├── mudules/                         # 技术最佳实践库（约定见 mudules/README.md）
-│   └── <tech>-usage/                #   SKILL.md + references/（必含技术目录树 *directory-tree*.md）
-│       └── references/
+│  └── <tech>-usage/                #   SKILL.md + references/（必含技术目录树 *directory-tree*.md）
+│      └── references/
 │
-└── tools/                           # 复用资产（数据制作/对比/发布断言脚本，feature-summary 登记）
+└── tools/                           # 复用资产（数据制品/对比/发布断言脚本，feature-summary 登记）
 ```
 
 ## 交付流程（一个需求的完整生命周期）
@@ -93,55 +93,55 @@ D:\Src\SpecEverything\V1.0\
 
 | Skill | 职责 | 关键条款 |
 |---|---|---|
-| feature-requirements-clarification | 需求对话与 AC 产出 | AC 编号 + Given-When-Then；规格目录 `specs/features/XXX-功能名称-YYYYMMDD/` 与 `index.md` 索引状态；编号交流必须「编号+名称」 |
-| feature-hifi-design | 高保真 UI 设计 | 设计稿先于技术方案；原型与标注图当即在会话中渲染展示，经用户定稿才可继续 |
-| feature-tech-design | 技术方案（含开发思路/架构图/数据流程图三要素） | 每条 AC 必须在方案中有着落（→ AC-XXX 追溯） |
-| feature-task-planning | 任务拆分 | 垂直切片；每条 AC 可追溯到至少一个任务 |
-| feature-implementation | TDD 实现 | 无失败测试不写实现；每任务七问反省块；业务/测试分开提交；不推翻技术方案 |
-| feature-code-review | 代码复核（黑盒验收前的质量门） | 三维度：过度设计逐项清点 / 架构符合性 / 规范符合性；C1 直接修、C2 回技术方案、C3 走 bugfix-workflow；不通过不得进入验收 |
-| feature-blackbox-test | 真实用户模拟验收 | 真实入口逐 AC 操作；截图磁盘留证 + 会话展示双轨不可替代；多终端/交互流/多档位全覆盖 |
-| feature-evolution | 需求变更 | 变更走 CR 编号流程；行为与既定规格不符走 bugfix-workflow，两者不混用 |
-| feature-release-deploy | worktree 分支模型 + 上线发布 | 一需求一 worktree（含清理与需求数据库隔离，唯一定义处）；只从 main 发布；发布记录齐全才可声明上线完成 |
-| feature-commit-push | 提交与推送（feature 最末环节，复盘沉淀之后落库） | 变更清单核对 + 秘密扫描；业务/测试分开提交（唯一定义处）；推送后核对远端；完成后才可宣告交付全部结束 |
-| feature-summary | 复盘与沉淀（流程收口） | 种子数据评估 → 过程复盘 → 知识沉淀 → 会话交接；四步未完成不得标记交付全部完成 |
+| speceverything-feature-requirements-clarification | 需求对话与 AC 产出 | AC 编号 + Given-When-Then；规格目录 `specs/features/XXX-功能名称-YYYYMMDD/` 与 `index.md` 索引状态；编号交流必须「编号 + 名称」。 |
+| speceverything-feature-hifi-design | 高保真 UI 设计 | 设计稿先于技术方案；原型与标注图当即在会话中渲染展示，经用户定稿才可继续 |
+| speceverything-feature-tech-design | 技术方案（含开发思路/架构图/数据流程图三要素） | 每条 AC 必须在方案中有着落（→ AC-XXX 追溯）。 |
+| speceverything-feature-task-planning | 任务拆分 | 垂直切片；每个 AC 可追溯到至少一个任务。 |
+| speceverything-feature-implementation | TDD 实现 | 无失败测试不写实现；每任务七问反省块；业务/测试分开提交；不推翻技术方案。 |
+| speceverything-feature-code-review | 代码复核（黑盒验收前的质量门） | 三维度：过度设计逐项清点 / 架构符合性 / 规范符合性；C1 直接修、C2 回技术方案、C3 走 bugfix-workflow；不通过不得进入验收 |
+| speceverything-feature-blackbox-test | 真实用户模拟验收 | 真实入口按 AC 操作；截图磁盘留证 + 会话展示双轨不可替代；多终端/交互流/多档位全覆盖 |
+| speceverything-feature-evolution | 需求变更 | 变更走 CR 编号流程；行为与既定规格不符走 bugfix-workflow，两者不混用 |
+| speceverything-feature-release-deploy | worktree 分支模型 + 上线发布 | 一需求一 worktree（含清理与需求数据库隔离，唯一定义处）；只从 main 发布；发布记录齐全才可声明上线完成。 |
+| speceverything-feature-commit-push | 提交与推送（feature 最末环节，复盘沉淀之后落库） | 变更清单核对 + 秘密扫描；业务/测试分开提交（唯一定义处）；推送后核对远端；完成后才可宣告交付全部结束 |
+| speceverything-feature-summary | 复盘与沉淀（流程收口） | 种子数据评估 → 过程复盘 → 知识沉淀 → 会话交接；四步未完成不得标记交付全部完成 |
 
 ### 项目级（skills/project/）
 
 | Skill | 职责 |
 |---|---|
-| project-requirements-clarification | 项目启动需求澄清 |
-| project-product-overview | 产品概述文档 |
-| project-tech-stack | 技术选型 |
-| project-structure | 目录结构设计 |
-| project-roadmap-planning | 开发路线图 |
-| project-dev-standards | 开发规范（含 AI 协作协议与错题本机制） |
-| project-initialization | 项目初始化执行 |
+| speceverything-project-requirements-clarification | 项目启动需求澄清 |
+| speceverything-project-product-overview | 产品概述文档 |
+| speceverything-project-tech-stack | 技术选型 |
+| speceverything-project-structure | 目录结构设计 |
+| speceverything-project-roadmap-planning | 开发路线图 |
+| speceverything-project-dev-standards | 开发规范（含 AI 协作协议与错题本机制） |
+| speceverything-project-initialization | 项目初始化执行 |
 
 ### 其他
 
-- **spec-standards**：规格创建规范唯一定义处——规格目录 `specs/features/XXX-功能名称-YYYYMMDD/`、各阶段文档命名、`index.md` 索引状态、编号体系与编号交流规则。
-- **bugfix-workflow**：根因决策顺序、最小改动、无根因不兜底（记错题本「待查」）。
+- **speceverything-spec-standards**：规格创建规范唯一定义处——规格目录 `specs/features/XXX-功能名称-YYYYMMDD/`、各阶段文档命名、`index.md` 索引状态、编号体系与编号交流规则。
+- **speceverything-bugfix-workflow**：根因决策顺序、最小改动、无根因不兜底（记错题本「待查」）。
 
 ## 横切纪律的唯一定义处
 
 | 纪律 | 定义处 |
 |---|---|
-| 规格目录结构与各阶段文档命名 | spec-standards §1–§2 |
-| 索引状态与编号体系、编号交流规则 | spec-standards §3–§5 |
-| AC 质量标准（编号/GWT/三类场景） | feature-requirements-clarification |
-| worktree 分支模型与命名 | feature-release-deploy §2 |
-| 开发记录目录（docs/开发记录/ 一需求一目录） | spec-standards §10 |
-| worktree 生命周期与需求数据库隔离 | feature-release-deploy §2.1 / §2.2 |
-| TDD 铁律、回归口径、任务反省块 | feature-implementation |
-| 代码复核三维度与处置路由（C1/C2/C3） | feature-code-review |
-| 提交纪律（业务/测试分开提交）与推送核对 | feature-commit-push §3–§4 |
-| 验收证据纪律（双轨：磁盘 + 会话展示） | feature-blackbox-test §4 |
-| 种子数据评估、过程复盘、会话交接、收口门禁 | feature-summary |
-| 错题本条目格式 | feature-summary §7 / project-dev-standards §13 |
+| 规格目录结构与各阶段文档命名 | speceverything-spec-standards §1–§2 |
+| 索引状态与编号体系、编号交流规则 | speceverything-spec-standards §3–§6 |
+| AC 质量标准（编号/GWT/三类场景） | speceverything-feature-requirements-clarification |
+| worktree 分支模型与命名 | speceverything-feature-release-deploy §2 |
+| 开发记录目录（docs/开发记录：一需求一目录） | speceverything-spec-standards §10 |
+| worktree 生命周期与需求数据库隔离 | speceverything-feature-release-deploy §2.1 / §2.2 |
+| TDD 铁律、回归口径、任务反省块 | speceverything-feature-implementation |
+| 代码复核三维度与处置路由（C1/C2/C3） | speceverything-feature-code-review |
+| 提交纪律（业务/测试分开提交）与推送核对 | speceverything-feature-commit-push §3–§5 |
+| 验收证据纪律（双轨：磁盘 + 会话展示） | speceverything-feature-blackbox-test §4 |
+| 种子数据评估、过程复盘、会话交接、收口门禁 | speceverything-feature-summary |
+| 错题本条目格式 | speceverything-feature-summary §7 / speceverything-project-dev-standards §13 |
 | 阶段边界与越界拦截 | specs/GUARDRAILS.md + 各 skill 自带边界声明 |
-| 全局架构资产（specs/design/架构.md）与同步义务 | spec-standards §9 + feature-tech-design 全局架构同步条款 |
+| 全局架构资产（specs/design/架构.md）与同步义务 | speceverything-spec-standards §9 + speceverything-feature-tech-design 全局架构同步条款 |
 | 项目上下文强制读取 | specs/PROJECT-CONTEXT.md |
-| 技术最佳实践检索（mudules/*-usage，未命中则官方文档） | feature-tech-design 前置条件 §3 |
+| 技术最佳实践检索（mudules/*-usage，未命中则官方文档） | speceverything-feature-tech-design 前置条件 §3 |
 
 ## 关键约定
 

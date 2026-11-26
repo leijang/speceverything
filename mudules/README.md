@@ -1,4 +1,4 @@
-# mudules/ — 技术最佳实践库
+# mudules/ —— 技术最佳实践库
 
 本目录存放**技术栈级**的最佳实践 skill（与项目业务无关）。`feature-tech-design` 做技术方案时**强制检索**本目录：命中即按其最佳实践设计并标注依据；未命中则检索该技术官方文档并留痕（优先级：`specs/` 项目红线 > `mudules/*-usage` > 官方文档）。
 
@@ -7,13 +7,13 @@
 ```text
 mudules/
 ├── README.md                  # 本文件：目录约定与检索协议
-├── abp-usage/
-│   ├── SKILL.md               # 心法、分层决策表、铁律、常见坑、检索方法
-│   └── references/
-│       ├── 00-directory-tree.md   # ★ 技术目录树（必含，见下）
-│       ├── 01-ddd-layering.md     # 分层教程
-│       └── …
-└── mysql-usage/
+├── speceverything-abp-usage/
+│  ├── SKILL.md               # 心法、分层决策表、铁律、常见坑、检索方法
+│  └── references/
+│      ├── 00-directory-tree.md   # ★ 技术目录树（必含，见下）
+│      ├── 01-ddd-layering.md     # 分层教程
+│      └── …
+└── speceverything-mysql-usage/
     ├── SKILL.md
     └── references/
         ├── directory-tree.md      # ★ 技术目录树（必含）
