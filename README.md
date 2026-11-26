@@ -54,10 +54,11 @@ D:\Src\SpecEverything\V1.0\
 │   │   ├── feature-tech-design/                 # ③ 技术方案（三要素 + 全局架构同步）
 │   │   ├── feature-task-planning/               # ④ 任务拆分（垂直切片）
 │   │   ├── feature-implementation/              # ⑤ TDD 实现（七问反省块）
-│   │   ├── feature-blackbox-test/               # ⑥ 真实用户模拟验收（证据双轨）
-│   │   ├── feature-release-deploy/              # ⑦/⑧ worktree 模型 + 上线发布
-│   │   ├── feature-summary/                     # ⑨ 复盘 + 沉淀 + 交接（含 2 个模板）
-│   │   ├── feature-commit-push/                 # ⑩ 提交与推送（最末环节）
+│   │   ├── feature-code-review/                  # ⑥ 代码复核（过度设计/架构/规范三维度）
+│   │   ├── feature-blackbox-test/                # ⑦ 真实用户模拟验收（证据双轨）
+│   │   ├── feature-release-deploy/              # ⑧/⑨ worktree 模型 + 上线发布
+│   │   ├── feature-summary/                     # ⑩ 复盘 + 沉淀 + 交接（含 2 个模板）
+│   │   ├── feature-commit-push/                 # ⑪ 提交与推送（最末环节）
 │   │   └── feature-evolution/                   # 变更流程（CR-XXX）
 │   └── project/                     #   项目级：启动与技术治理
 │       ├── project-requirements-clarification/  # 启动需求澄清
@@ -78,9 +79,9 @@ D:\Src\SpecEverything\V1.0\
 ## 交付流程（一个需求的完整生命周期）
 
 ```
-① 需求分析 → ② UI 设计稿 → ③ 技术设计 → ④ 任务规划 → ⑤ 实现(TDD)
-→ ⑥ 黑盒验收 → ⑦ 归档 + 种子数据评估 → ⑧ 上线发布 → ⑨ 复盘 + 沉淀
-→ ⑩ 提交与推送 → ⑪ 会话交接
+① 需求分析 → ② UI 设计稿 → ③ 技术设计 → ④ 任务规划 → ⑤ 实现(TDD) → ⑥ 代码复核 → ⑦ 黑盒验收
+→ ⑧ 归档 + 种子数据评估 → ⑨ 上线发布 → ⑩ 复盘 + 沉淀
+→ ⑪ 提交与推送 → ⑫ 会话交接
 ```
 
 每个阶段由一个 feature skill 执行；跨阶段的横切纪律（规格目录与索引、worktree 模型、验收证据、收口门禁）由对应 skill 作为唯一定义处持有。
@@ -96,6 +97,7 @@ D:\Src\SpecEverything\V1.0\
 | feature-tech-design | 技术方案（含开发思路/架构图/数据流程图三要素） | 每条 AC 必须在方案中有着落（→ AC-XXX 追溯） |
 | feature-task-planning | 任务拆分 | 垂直切片；每条 AC 可追溯到至少一个任务 |
 | feature-implementation | TDD 实现 | 无失败测试不写实现；每任务七问反省块；业务/测试分开提交；不推翻技术方案 |
+| feature-code-review | 代码复核（黑盒验收前的质量门） | 三维度：过度设计逐项清点 / 架构符合性 / 规范符合性；C1 直接修、C2 回技术方案、C3 走 bugfix-workflow；不通过不得进入验收 |
 | feature-blackbox-test | 真实用户模拟验收 | 真实入口逐 AC 操作；截图磁盘留证 + 会话展示双轨不可替代；多终端/交互流/多档位全覆盖 |
 | feature-evolution | 需求变更 | 变更走 CR 编号流程；行为与既定规格不符走 bugfix-workflow，两者不混用 |
 | feature-release-deploy | worktree 分支模型 + 上线发布 | 一需求一 worktree（含清理与需求数据库隔离，唯一定义处）；只从 main 发布；发布记录齐全才可声明上线完成 |
@@ -130,6 +132,7 @@ D:\Src\SpecEverything\V1.0\
 | 开发记录目录（docs/开发记录/ 一需求一目录） | spec-standards §10 |
 | worktree 生命周期与需求数据库隔离 | feature-release-deploy §2.1 / §2.2 |
 | TDD 铁律、回归口径、任务反省块 | feature-implementation |
+| 代码复核三维度与处置路由（C1/C2/C3） | feature-code-review |
 | 提交纪律（业务/测试分开提交）与推送核对 | feature-commit-push §3–§4 |
 | 验收证据纪律（双轨：磁盘 + 会话展示） | feature-blackbox-test §4 |
 | 种子数据评估、过程复盘、会话交接、收口门禁 | feature-summary |

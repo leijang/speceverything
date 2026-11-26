@@ -23,6 +23,7 @@ description: "规格创建规范（specs/ 体系唯一定义处）。当需要�
 | `技术方案.md` | feature-tech-design |
 | `任务规划.md` | feature-task-planning |
 | `变更任务_CR-XXX-变更题目.md` | feature-evolution |
+| （无独立规格文档，报告落 `docs/开发记录/`） | feature-code-review |
 | `验收截图/` | feature-blackbox-test |
 | `过程复盘.md` | feature-summary |
 | `specs/features/index.md` | 所有产出方（新建或状态变更时同步） |
