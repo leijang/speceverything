@@ -110,7 +110,7 @@ description: "代码复核（实现在黑盒验收前的质量门）。在一个
 
 # 产出与落盘
 
-读取 `assets/code-review-report-template.md`，生成复核报告，保存到 `docs/开发记录/<需求目录名>/`（一需求一目录，目录名与 `specs/features/` 下同名，约定见 spec-standards §10）。
+读取 `assets/code-review-report-template.md`，生成编码复核文档，保存到该需求规格目录 `specs/features/XXX-功能名称-YYYYMMDD/` 下的 `编码复核.md`（文档命名见 spec-standards §2）。
 
 报告必须包含：三维度逐项结论（含过度设计逐项清点表、架构对照表、规范核对表）、问题清单（C1/C2/C3 分级）、处置与路由结果、复核结论（通过/不通过）。
 

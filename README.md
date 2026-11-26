@@ -28,6 +28,7 @@ D:\Src\SpecEverything\V1.0\
 │       │   ├── 技术方案.md          #     开发思路 + 架构图 + 数据流程图 + API/DB（tech-design）
 │       │   ├── 任务规划.md          #     Task-XX 垂直切片 + 验证标准 + 执行反省块
 │       │   ├── 变更任务_CR-001-XX.md#     变更登记（feature-evolution）
+│       │   ├── 编码复核.md            #     代码复核三维度结论（feature-code-review）
 │       │   ├── 验收截图/            #     F001-AC003-移动端选中状态.png（blackbox-test）
 │       │   ├── 过程复盘.md          #     效率损失排查 + 改进闭环（feature-summary）
 │       │   └── 交付记录.md          #     提交哈希/发布记录/种子评估结论
