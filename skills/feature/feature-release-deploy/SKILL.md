@@ -23,10 +23,8 @@ description: "合并、发布与 worktree 分支模型。当需求验收完成�
 - 合并前检查目标工作区状态，不覆盖无关改动；有冲突逐项解决并重新验证。
 - 上线发布（main）后确认 CI/构建通过，`main` 上任何提交都必须是可发布状态。
 
-**分支命名规范（格式 + 语言）**：
-- **里程碑分支**：`milestone/<yyyymmdd>-<中文主题>`，如 `milestone/20261124-实时题包`。日期 = 切出日（八位 ASCII），主题 = 该节点核心交付的中文名称（编号对应主题名）。
-- **worktree**：`codex/<变更或需求编号>-<中文主题>`，分支名 = worktree 目录名，如 `codex/F005-CR009-实时题包`。光秃编号不允许出现在命名中。worktree 完成合并 develop 后即可删除（远端功能分支同步删除，里程碑分支不受影响）。
-- **语言纪律**：日期/编号/前缀用 ASCII（`milestone/`、`codex/`、`yyyymmdd`、`CR-XXX`），主题一律**中文**——不在同一分支名内中英混用主题。
+**分支命名规范**：命名格式、语言纪律与示例统一见 **spec-standards §4.1**（唯一定义处，冲突时以它为准）。本 skill 只管流程：
+- worktree 完成合并 develop 后即可删除（远端功能分支同步删除，里程碑分支不受影响）。
 - 路径含中文的 shell 操作注意引号包裹；推送前确认分支名与 worktree 目录名严格一致。
 
 **worktree 创建后检查**：worktree_create 创建的 worktree 初始可能为 **detached HEAD**。新建 worktree 后、任何提交前，先 `git status` 确认「On branch」；不在分支上就先 `git checkout -b <需求分支>` 再动手（提交信息里出现 detached HEAD 字样即回滚检查）。

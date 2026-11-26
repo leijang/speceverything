@@ -1,6 +1,6 @@
 ---
 name: "spec-standards"
-description: "规格创建规范（specs/ 体系唯一定义处）。当需要创建或更新任何规格文档——新建需求规格、技术方案、任务规划、变更任务、索引——时使用：定义规格目录结构、各阶段文档命名、index.md 索引状态、编号体系（F00X/CR-XXX/BUG-XXX/Task-XX/AC-XXX）与编号交流规则。各阶段 skill 产出的规格文档一律遵循本规范，冲突时以本规范为准。"
+description: "规格创建规范（specs/ 体系与命名体系的唯一定义处）。当需要创建或更新任何规格文档——新建需求规格、技术方案、任务规划、变更任务、索引——时使用：定义规格目录结构、各阶段文档命名、index.md 索引状态、编号体系（F00X/CR-XXX/BUG-XXX/Task-XX/AC-XXX）、分支与 worktree 命名规范（codex/、milestone/）与编号交流规则。各阶段 skill 产出的规格文档与分支/worktree 命名一律遵循本规范，冲突时以本规范为准。"
 ---
 
 # Role: 规格管理员 (Spec Custodian)
@@ -48,6 +48,21 @@ description: "规格创建规范（specs/ 体系唯一定义处）。当需要�
 | `AC-XXX` | 验收标准（需求说明内） | AC-001 |
 
 编号在各自体系内全局递增、不复用；AC 编号在单个需求内递增。
+
+## 4.1 分支与 worktree 命名规范
+
+worktree/分支命名属于编号体系的延伸——所有命名必须能回溯到 §4 的编号。格式与语言纪律统一由本节定义，各流程 skill 引用执行：
+
+| 对象 | 规范 | 示例 |
+|---|---|---|
+| worktree（需求） | `codex/<需求编号>-<中文主题>`，分支名 = worktree 目录名 | `codex/F005-实时题包` |
+| worktree（变更单元） | `codex/<需求编号>-CR<XXX>-<中文主题>` | `codex/F005-CR009-实时题包` |
+| worktree（任务单元） | `codex/<需求编号>-Task<XX>-<中文主题>` | `codex/F005-Task03-实时题包` |
+| 里程碑分支 | `milestone/<yyyymmdd>-<中文主题>` | `milestone/20261124-实时题包` |
+
+- **语言纪律**：日期/编号/前缀用 ASCII（`milestone/`、`codex/`、`yyyymmdd`、`CR-XXX`），主题一律**中文**——不在同一分支名内中英混用主题。
+- **禁止光秃编号**：命名中必须带主题，`codex/F005` 这类裸编号不合法。
+- 创建/复用/清理的**流程规则**（占用检查、粒度升级、生命周期）不在本节，见 feature-release-deploy §2。
 
 ## 5. 编号交流规则（强制）
 
