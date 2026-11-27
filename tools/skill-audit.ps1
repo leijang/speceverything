@@ -7,6 +7,9 @@
 #   4. Per-SKILL.md size: chars / CJK / printable-ascii + rough token estimate (budget gate).
 #      Estimate formula: tokens ~= CJK + ascii/4 (upper bound; used for RELATIVE budget control only).
 #   5. Every mudules/*-usage skill ships a references/*directory-tree*.md.
+#   6. tools/**/*.ps1 containing CJK must carry a UTF-8 BOM (PS 5.1 else parses as ANSI; specs/错题本.md entry 2).
+#   7. specs/features/index.md statuses must be from the enum owned by spec-standards 第3节 (transition-owner
+#      map kept machine-readable inside check 8 below).
 #
 # Usage:   powershell -NoProfile -ExecutionPolicy Bypass -File tools\skill-audit.ps1 [-ScanRoot <path>]
 # Output:  tools/skill-audit-report.md -- regenerated on every run; commit the snapshot as evidence.
@@ -172,7 +175,49 @@ foreach ($k in @($lineMap.Keys)) {
     }
 }
 
-$clean = ($refBroken -eq 0 -and $assetMissing -eq 0 -and $specHits -eq 0 -and $mudMissing -eq 0 -and $dupHits -eq 0)
+# 7. CJK script encoding gate: tools/**/*.ps1 containing CJK must start with a UTF-8 BOM -- PS 5.1
+#    parses BOM-less files as ANSI and CJK literals silently degrade (specs/错题本.md entry 2).
+$bomRows = New-Object System.Collections.Generic.List[string]
+$bomMissing = 0
+$toolsDir = Join-Path $root 'tools'
+if (Test-Path -LiteralPath $toolsDir) {
+    foreach ($f in (Get-ChildItem -LiteralPath $toolsDir -Recurse -Filter '*.ps1')) {
+        $bytes = [IO.File]::ReadAllBytes($f.FullName)
+        $text  = [System.Text.Encoding]::UTF8.GetString($bytes)
+        if ($text -match '[\u4e00-\u9fff]') {
+            $hasBom = ($bytes.Length -ge 3 -and $bytes[0] -eq 0xEF -and $bytes[1] -eq 0xBB -and $bytes[2] -eq 0xBF)
+            if (-not $hasBom) { $bomMissing++ }
+            $rel = $f.FullName.Substring($root.Length + 1)
+            $bomRows.Add("| $rel | $(if ($hasBom) {'OK'} else {'**MISSING UTF-8 BOM**'}) |")
+        }
+    }
+}
+
+# 8. feature index status gate. Transition-owner map, machine-readable copy of spec-standards 第3节
+#    (prose stays the sole definition; this copy exists so the check is self-describing):
+#      规划中 →[requirements-clarification 完成]→ 需求已确认 →[tech-design 完成]→ 设计已确认
+#      →[implementation 首个任务动工]→ 开发中 →[code-review 通过]→ 已实现/待验收
+#      →[blackbox-test 验收通过 + release-deploy 合并发布]→ 已完成
+#      任意状态 +[bugfix-workflow 立案]→ 修复中；已取消 = 终态。
+#    Liveness (dead/unreachable states) needs multi-feature history to be decidable; today the gate
+#    mechanically validates enum membership per row, which is what caught the stale-status class.
+$legalStates = @('规划中','需求已确认','设计已确认','开发中','已实现/待验收','已完成','修复中','已取消')
+$idxRows = New-Object System.Collections.Generic.List[string]
+$idxBad = 0
+$idxPath = Join-Path $root 'specs\features\index.md'
+if (Test-Path -LiteralPath $idxPath) {
+    foreach ($line in [IO.File]::ReadAllLines($idxPath, $utf8)) {
+        if ($line -notmatch '^\|' -or $line -match '^\|[-\s]*-') { continue }
+        $cells = @($line -split '\|' | ForEach-Object { $_.Trim() })
+        if ($cells.Count -lt 5 -or $cells[1] -eq '编号') { continue }
+        $base = ($cells[4] -split '（')[0].Trim()
+        $ok = $legalStates -contains $base
+        if (-not $ok) { $idxBad++ }
+        $idxRows.Add("| $($cells[1])（$($cells[2])） $base | $(if ($ok) {'OK'} else {'**UNKNOWN STATUS**'}) |")
+    }
+}
+
+$clean = ($refBroken -eq 0 -and $assetMissing -eq 0 -and $specHits -eq 0 -and $mudMissing -eq 0 -and $dupHits -eq 0 -and $bomMissing -eq 0 -and $idxBad -eq 0)
 
 $L = New-Object System.Collections.Generic.List[string]
 $L.Add('# Skill Library Mechanical Audit')
@@ -218,7 +263,23 @@ $L.Add('| first | other | line (<=60 chars) |')
 $L.Add('|---|---|---|')
 if ($dupRows.Count -eq 0) { $L.Add('| (none) | | |') } else { foreach ($r in $dupRows) { $L.Add($r) } }
 $L.Add('')
+$L.Add('## 7. CJK script encoding (tools/**/*.ps1 with CJK must carry UTF-8 BOM)')
+$L.Add('')
+$L.Add("CJK BOM missing: $bomMissing")
+$L.Add('')
+$L.Add('| script | status |')
+$L.Add('|---|---|')
+if ($bomRows.Count -eq 0) { $L.Add('| (no CJK scripts found) | |') } else { foreach ($r in $bomRows) { $L.Add($r) } }
+$L.Add('')
+$L.Add('## 8. feature index statuses (specs/features/index.md; enum per spec-standards 第3节)')
+$L.Add('')
+$L.Add("Index statuses unknown: $idxBad")
+$L.Add('')
+$L.Add('| feature | status | verdict |')
+$L.Add('|---|---|---|')
+if ($idxRows.Count -eq 0) { $L.Add('| (no index file) | | |') } else { foreach ($r in $idxRows) { $L.Add($r) } }
+$L.Add('')
 
 [IO.File]::WriteAllLines($outPath, $L, $utf8BOM)
-Write-Output ("audit done: refs=$refTotal broken=$refBroken assetsMissing=$assetMissing specPaths=$specHits mudTreeMissing=$mudMissing dups=$dupHits report=$outPath")
+Write-Output ("audit done: refs=$refTotal broken=$refBroken assetsMissing=$assetMissing specPaths=$specHits mudTreeMissing=$mudMissing dups=$dupHits bomMissing=$bomMissing idxBad=$idxBad report=$outPath")
 if ($clean) { exit 0 } else { exit 1 }
