@@ -1,10 +1,10 @@
 ﻿---
 name: "speceverything-mysql-usage"
-slug: speceverything-mysql-usage
-displayName: MySQL 设计与使用助手
 description: "帮助Agent为项目进行MySQL Schema设计、索引设计、查询设计，并提供场景化使用指南与技术目录树（数据库资产在仓库中的标准组织结构）。当用户需要设计数据库表结构、优化查询性能、规划分库分表方案、确定数据库脚本/迁移/种子的目录归属时触发。"
-version: 1.0.2
 metadata:
+  slug: speceverything-mysql-usage
+  displayName: "MySQL 设计与使用助手"
+  version: "1.0.2"
   clawdbot:
     emoji: "🐬"
     requires:
