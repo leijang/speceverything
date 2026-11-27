@@ -77,7 +77,8 @@ D:\Src\SpecEverything\
 │  └── <tech>-usage/                #   SKILL.md + references/（必含技术目录树 *directory-tree*.md）
 │      └── references/
 │
-└── tools/                           # 机械门禁与复用资产：skill-audit.ps1（九节审计）· skill-mutate.ps1（变异自证）· tests/（21 用例 + golden 锚点）· measure-tokens.py（token 实测校准）· 台账与审计证据；改动 skill 库后先跑审计再提交
+└── tools/                           # 机械门禁与复用资产：skill-audit.ps1（十节审计）· skill-mutate.ps1（变异自证）· tests/（24 用例 + golden 锚点）· measure-tokens.py（token 实测校准）· 台账与审计证据；改动 skill 库后先跑审计再提交
+└── .agents/                          # 机器本地布线（gitignore，不入库）：skills/ = 23 个指向仓库源目录的 junction——Agent Skills 跨客户端发现路径（Claude Code/Codex/Cursor/OpenCode 等按此读取）；worktrees/ = 代理工具临时工作区（内容全忽略，标准工作区约定）
 ```
 
 ## 交付流程（一个需求的完整生命周期）

@@ -28,6 +28,7 @@ description: "合并、发布与 worktree 分支模型。当需求验收完成�
 
 **创建前检查**：
 - 核对 `git status`、`git worktree list` 和分支状态；目标集成分支（`develop`）不存在（冷启动仓库仅有 `main`）时，先从 `main` 创建 `develop` 再继续；记录需求编号、目标分支、基线提交、需求分支和 worktree 绝对路径。
+- worktree 统一置于仓库内 `.agents/worktrees/<需求编号>-<中文主题>/`（Agent Skills 生态的标准工作区约定：机器本地、git 全忽略、根仓 status 与审计天然不可见）；该目录由创建它的代理工具在运行时使用。
 - worktree 路径必须唯一，不得覆盖已有目录或带入其他任务的未提交改动。
 **隔离（并行需求）**：
 - 一需求一 worktree：每个需求（含新增、变更、Bug 修复）从目标集成分支创建独立 worktree 和需求分支；禁止共用开发 worktree，禁止直接在主工作目录或集成分支上开发。

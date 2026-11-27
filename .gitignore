@@ -1,0 +1,3 @@
+﻿# .agents/ is machine-local wiring: skill junctions point back at the git-tracked source dirs,
+# and worktrees/ holds agent-tool temporary workspaces. Nothing under it enters git.
+.agents/
