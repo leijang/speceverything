@@ -1,3 +1,19 @@
-﻿# .agents/ is machine-local wiring: skill junctions point back at the git-tracked source dirs,
-# and worktrees/ holds agent-tool temporary workspaces. Nothing under it enters git.
-.agents/
+﻿# Machine-local under .agents/: first-party skill junctions (point back at git-tracked source dirs),
+# worktrees, and tool state -- none of it enters git. The committed exceptions are the vendored
+# third-party packages (ibelick/ui-skills); provenance in .agents/skills/VENDORED.md.
+.agents/*
+!.agents/skills/
+.agents/skills/*
+!.agents/skills/baseline-ui/
+!.agents/skills/component-canvas/
+!.agents/skills/create-canvas/
+!.agents/skills/create-design-md/
+!.agents/skills/device-frames/
+!.agents/skills/fixing-accessibility/
+!.agents/skills/fixing-metadata/
+!.agents/skills/fixing-motion-performance/
+!.agents/skills/improve-ui/
+!.agents/skills/photographing-software/
+!.agents/skills/ui-skills-root/
+!.agents/skills/ui-skills-LICENSE.txt
+!.agents/skills/VENDORED.md
