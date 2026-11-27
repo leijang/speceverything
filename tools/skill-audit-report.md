@@ -1,17 +1,121 @@
 ﻿# Skill Library Mechanical Audit
 
-Verdict: **CLEAN** -- refs checked: 0 (broken: 0), assets missing: 0, singular spec/ paths: 0, mudules missing tree: 0
+Verdict: **CLEAN** -- refs checked: 89 (broken: 0), assets missing: 0, singular spec/ paths: 0, mudules missing tree: 0
 
 ## 1. Section reference check (skill name + SS number -> target heading exists)
 
 | source file:line | target | ref | status |
 |---|---|---|---|
+| README.md:21 | (runtime doc) | 3 | RUNTIME-DOC |
+| README.md:24 | skills\standard\speceverything-spec-standards\SKILL.md | 9 | OK |
+| README.md:137 | skills\standard\speceverything-spec-standards\SKILL.md | 1 | OK |
+| README.md:137 | skills\standard\speceverything-spec-standards\SKILL.md | 2 | OK |
+| README.md:138 | skills\standard\speceverything-spec-standards\SKILL.md | 3 | OK |
+| README.md:138 | skills\standard\speceverything-spec-standards\SKILL.md | 6 | OK |
+| README.md:140 | skills\feature\speceverything-feature-release-deploy\SKILL.md | 2 | OK |
+| README.md:141 | skills\standard\speceverything-spec-standards\SKILL.md | 10 | OK |
+| README.md:142 | skills\feature\speceverything-feature-release-deploy\SKILL.md | 2.1 | OK |
+| README.md:142 | skills\feature\speceverything-feature-release-deploy\SKILL.md | 2.2 | OK |
+| README.md:145 | skills\feature\speceverything-feature-commit-push\SKILL.md | 3 | OK |
+| README.md:145 | skills\feature\speceverything-feature-commit-push\SKILL.md | 5 | OK |
+| README.md:146 | skills\feature\speceverything-feature-blackbox-test\SKILL.md | 4 | OK |
+| README.md:148 | skills\feature\speceverything-feature-summary\SKILL.md | 7 | OK |
+| README.md:150 | skills\standard\speceverything-spec-standards\SKILL.md | 9 | OK |
+| mudules\speceverything-mysql-usage\references\directory-tree.md:48 | skills\feature\speceverything-feature-summary\SKILL.md | 2 | OK |
+| mudules\speceverything-wpf-usage\references\04-performance-and-leaks.md:48 | mudules\speceverything-wpf-usage\references\04-performance-and-leaks.md | 5 | OK |
+| skills\feature\speceverything-feature-blackbox-test\SKILL.md:27 | skills\standard\speceverything-spec-standards\SKILL.md | 2 | OK |
+| skills\feature\speceverything-feature-blackbox-test\SKILL.md:36 | skills\feature\speceverything-feature-blackbox-test\SKILL.md | 7 | OK |
+| skills\feature\speceverything-feature-blackbox-test\SKILL.md:46 | skills\feature\speceverything-feature-blackbox-test\SKILL.md | 4 | OK |
+| skills\feature\speceverything-feature-blackbox-test\SKILL.md:60 | skills\feature\speceverything-feature-summary\SKILL.md | 2 | OK |
+| skills\feature\speceverything-feature-code-review\SKILL.md:62 | skills\standard\speceverything-spec-standards\SKILL.md | 9 | OK |
+| skills\feature\speceverything-feature-code-review\SKILL.md:73 | skills\feature\speceverything-feature-summary\SKILL.md | 7 | OK |
+| skills\feature\speceverything-feature-code-review\SKILL.md:113 | skills\standard\speceverything-spec-standards\SKILL.md | 2 | OK |
+| skills\feature\speceverything-feature-code-review\SKILL.md:118 | skills\standard\speceverything-spec-standards\SKILL.md | 9 | OK |
+| skills\feature\speceverything-feature-code-review\SKILL.md:119 | skills\standard\speceverything-spec-standards\SKILL.md | 3 | OK |
+| skills\feature\speceverything-feature-code-review\assets\code-review-report-template.md:30 | skills\standard\speceverything-spec-standards\SKILL.md | 9 | OK |
+| skills\feature\speceverything-feature-commit-push\SKILL.md:15 | skills\feature\speceverything-feature-release-deploy\SKILL.md | 2 | OK |
+| skills\feature\speceverything-feature-commit-push\SKILL.md:23 | skills\feature\speceverything-feature-release-deploy\SKILL.md | 2 | OK |
+| skills\feature\speceverything-feature-commit-push\SKILL.md:32 | skills\project\speceverything-project-dev-standards\SKILL.md | 7 | OK |
+| skills\feature\speceverything-feature-commit-push\SKILL.md:42 | skills\feature\speceverything-feature-release-deploy\SKILL.md | 2.1 | OK |
+| skills\feature\speceverything-feature-commit-push\SKILL.md:47 | skills\feature\speceverything-feature-release-deploy\SKILL.md | 2.2 | OK |
+| skills\feature\speceverything-feature-commit-push\SKILL.md:61 | skills\feature\speceverything-feature-release-deploy\SKILL.md | 2.1 | OK |
+| skills\feature\speceverything-feature-implementation\SKILL.md:35 | skills\feature\speceverything-feature-release-deploy\SKILL.md | 2 | OK |
+| skills\feature\speceverything-feature-implementation\SKILL.md:38 | skills\feature\speceverything-feature-release-deploy\SKILL.md | 2 | OK |
+| skills\feature\speceverything-feature-implementation\SKILL.md:39 | skills\feature\speceverything-feature-release-deploy\SKILL.md | 2 | OK |
+| skills\feature\speceverything-feature-implementation\SKILL.md:60 | skills\speceverything-bugfix-workflow\SKILL.md | 2.1 | OK |
+| skills\feature\speceverything-feature-implementation\SKILL.md:130 | skills\feature\speceverything-feature-summary\SKILL.md | 2 | OK |
+| skills\feature\speceverything-feature-implementation\SKILL.md:137 | skills\feature\speceverything-feature-commit-push\SKILL.md | 3 | OK |
+| skills\feature\speceverything-feature-implementation\SKILL.md:155 | skills\feature\speceverything-feature-summary\SKILL.md | 6 | OK |
+| skills\feature\speceverything-feature-release-deploy\SKILL.md:23 | skills\standard\speceverything-spec-standards\SKILL.md | 4.1 | OK |
+| skills\feature\speceverything-feature-release-deploy\SKILL.md:24 | skills\feature\speceverything-feature-release-deploy\SKILL.md | 2.1 | OK |
+| skills\feature\speceverything-feature-release-deploy\SKILL.md:36 | skills\feature\speceverything-feature-release-deploy\SKILL.md | 2.2 | OK |
+| skills\feature\speceverything-feature-release-deploy\SKILL.md:61 | skills\feature\speceverything-feature-blackbox-test\SKILL.md | 4 | OK |
+| skills\feature\speceverything-feature-release-deploy\SKILL.md:63 | skills\feature\speceverything-feature-release-deploy\SKILL.md | 5 | OK |
+| skills\feature\speceverything-feature-release-deploy\SKILL.md:74 | skills\feature\speceverything-feature-release-deploy\SKILL.md | 2 | OK |
+| skills\feature\speceverything-feature-summary\SKILL.md:14 | skills\feature\speceverything-feature-summary\SKILL.md | 2 | OK |
+| skills\feature\speceverything-feature-summary\SKILL.md:15 | skills\feature\speceverything-feature-summary\SKILL.md | 3 | OK |
+| skills\feature\speceverything-feature-summary\SKILL.md:16 | skills\feature\speceverything-feature-summary\SKILL.md | 4 | OK |
+| skills\feature\speceverything-feature-summary\SKILL.md:17 | skills\feature\speceverything-feature-summary\SKILL.md | 6 | OK |
+| skills\feature\speceverything-feature-summary\SKILL.md:43 | skills\feature\speceverything-feature-summary\SKILL.md | 4.2 | OK |
+| skills\feature\speceverything-feature-summary\SKILL.md:100 | (runtime doc) | 2.4 | RUNTIME-DOC |
+| skills\feature\speceverything-feature-summary\assets\交接文档模板.md:25 | (runtime doc) | 4 | RUNTIME-DOC |
+| skills\feature\speceverything-feature-tech-design\SKILL.md:108 | skills\standard\speceverything-spec-standards\SKILL.md | 9 | OK |
+| skills\project\speceverything-project-dev-standards\SKILL.md:131 | skills\feature\speceverything-feature-summary\SKILL.md | 7 | OK |
+| skills\project\speceverything-project-roadmap-planning\SKILL.md:44 | skills\standard\speceverything-spec-standards\SKILL.md | 4 | OK |
+| skills\project\speceverything-project-structure\SKILL.md:37 | skills\standard\speceverything-spec-standards\SKILL.md | 9 | OK |
+| skills\speceverything-bugfix-workflow\SKILL.md:78 | skills\standard\speceverything-spec-standards\SKILL.md | 4 | OK |
+| skills\speceverything-bugfix-workflow\SKILL.md:143 | skills\speceverything-bugfix-workflow\SKILL.md | 2.1 | OK |
+| skills\standard\speceverything-spec-standards\SKILL.md:50 | skills\standard\speceverything-spec-standards\SKILL.md | 4 | OK |
+| skills\standard\speceverything-spec-standards\SKILL.md:60 | skills\feature\speceverything-feature-release-deploy\SKILL.md | 2 | OK |
+| specs\design\架构.md:3 | skills\standard\speceverything-spec-standards\SKILL.md | 9 | OK |
+| specs\design\架构.md:56 | skills\standard\speceverything-spec-standards\SKILL.md | 9 | OK |
+| specs\features\index.md:3 | skills\standard\speceverything-spec-standards\SKILL.md | 3 | OK |
+| specs\features\F001-审计变异测试-20261127\交付记录.md:3 | skills\feature\speceverything-feature-summary\SKILL.md | 2 | OK |
+| specs\features\F001-审计变异测试-20261127\交付记录.md:8 | skills\feature\speceverything-feature-release-deploy\SKILL.md | 6 | OK |
+| specs\features\F001-审计变异测试-20261127\变更任务_CR-001-AC005回归保护口径修正.md:62 | specs\features\F001-审计变异测试-20261127\变更任务_CR-001-AC005回归保护口径修正.md | 1 | OK |
+| specs\features\F001-审计变异测试-20261127\变更任务_CR-001-AC005回归保护口径修正.md:62 | specs\features\F001-审计变异测试-20261127\变更任务_CR-001-AC005回归保护口径修正.md | 5 | OK |
+| specs\features\F001-审计变异测试-20261127\技术方案.md:24 | specs\features\F001-审计变异测试-20261127\技术方案.md | 1 | OK |
+| specs\features\F001-审计变异测试-20261127\技术方案.md:24 | specs\features\F001-审计变异测试-20261127\技术方案.md | 5 | OK |
+| specs\features\F001-审计变异测试-20261127\技术方案.md:42 | specs\features\F001-审计变异测试-20261127\技术方案.md | 1 | OK |
+| specs\features\F001-审计变异测试-20261127\技术方案.md:42 | specs\features\F001-审计变异测试-20261127\技术方案.md | 5 | OK |
+| specs\features\F001-审计变异测试-20261127\技术方案.md:42 | specs\features\F001-审计变异测试-20261127\技术方案.md | 6 | OK |
+| specs\features\F001-审计变异测试-20261127\技术方案.md:62 | specs\features\F001-审计变异测试-20261127\技术方案.md | 6 | OK |
+| specs\features\F001-审计变异测试-20261127\技术方案.md:62 | specs\features\F001-审计变异测试-20261127\技术方案.md | 1 | OK |
+| specs\features\F001-审计变异测试-20261127\技术方案.md:62 | specs\features\F001-审计变异测试-20261127\技术方案.md | 5 | OK |
+| specs\features\F001-审计变异测试-20261127\技术方案.md:101 | specs\features\F001-审计变异测试-20261127\技术方案.md | 6 | OK |
+| specs\features\F001-审计变异测试-20261127\技术方案.md:123 | specs\features\F001-审计变异测试-20261127\技术方案.md | 6 | OK |
+| specs\features\F001-审计变异测试-20261127\技术方案.md:155 | specs\features\F001-审计变异测试-20261127\技术方案.md | 6 | OK |
+| specs\features\F001-审计变异测试-20261127\技术方案.md:198 | specs\features\F001-审计变异测试-20261127\技术方案.md | 7 | OK |
+| specs\features\F001-审计变异测试-20261127\技术方案.md:198 | specs\features\F001-审计变异测试-20261127\技术方案.md | 7 | OK |
+| specs\features\F001-审计变异测试-20261127\技术方案.md:198 | specs\features\F001-审计变异测试-20261127\技术方案.md | 7 | OK |
+| specs\features\F001-审计变异测试-20261127\技术方案.md:199 | specs\features\F001-审计变异测试-20261127\技术方案.md | 7 | OK |
+| specs\features\F001-审计变异测试-20261127\技术方案.md:200 | specs\features\F001-审计变异测试-20261127\技术方案.md | 7 | OK |
+| specs\features\F001-审计变异测试-20261127\技术方案.md:201 | specs\features\F001-审计变异测试-20261127\技术方案.md | 7 | OK |
+| specs\features\F001-审计变异测试-20261127\技术方案.md:202 | specs\features\F001-审计变异测试-20261127\技术方案.md | 6 | OK |
+| specs\features\F001-审计变异测试-20261127\技术方案.md:211 | specs\features\F001-审计变异测试-20261127\技术方案.md | 7 | OK |
+| specs\features\F001-审计变异测试-20261127\需求说明.md:117 | specs\features\F001-审计变异测试-20261127\需求说明.md | 5 | OK |
+| specs\features\F001-审计变异测试-20261127\需求说明.md:117 | specs\features\F001-审计变异测试-20261127\需求说明.md | 6 | OK |
 
 ## 2. assets/ template existence
 
 | source file:line | referenced asset | status |
 |---|---|---|
-| (none referenced) | | |
+| skills\feature\speceverything-feature-code-review\SKILL.md:113 | assets/code-review-report-template.md | OK |
+| skills\feature\speceverything-feature-evolution\SKILL.md:89 | assets/feature-evolution-template.md | OK |
+| skills\feature\speceverything-feature-implementation\SKILL.md:186 | assets/stage-completion-report-template.md | OK |
+| skills\feature\speceverything-feature-requirements-clarification\SKILL.md:128 | assets/feature-requirements-template.md | OK |
+| skills\feature\speceverything-feature-summary\SKILL.md:47 | assets/过程复盘模板.md | OK |
+| skills\feature\speceverything-feature-summary\SKILL.md:116 | assets/交接文档模板.md | OK |
+| skills\feature\speceverything-feature-task-planning\SKILL.md:160 | assets/feature-task-planning-template.md | OK |
+| skills\feature\speceverything-feature-tech-design\SKILL.md:129 | assets/feature-tech-design-template.md | OK |
+| skills\project\speceverything-project-dev-standards\SKILL.md:154 | assets/dev-standards-template.md | OK |
+| skills\project\speceverything-project-initialization\SKILL.md:60 | assets/initialization-log-template.md | OK |
+| skills\project\speceverything-project-product-overview\SKILL.md:33 | assets/product-overview-template.md | OK |
+| skills\project\speceverything-project-requirements-clarification\SKILL.md:36 | assets/requirements-clarification-template.md | OK |
+| skills\project\speceverything-project-roadmap-planning\SKILL.md:71 | assets/roadmap-planning-template.md | OK |
+| skills\project\speceverything-project-structure\SKILL.md:35 | assets/project-structure-template.md | OK |
+| skills\project\speceverything-project-tech-stack\SKILL.md:41 | assets/tech-stack-template.md | OK |
+| skills\speceverything-bugfix-workflow\SKILL.md:133 | assets/bugfix-report-template.md | OK |
 
 ## 3. Singular "spec/" paths (workspace dir is "specs/")
 
@@ -23,14 +127,38 @@ Verdict: **CLEAN** -- refs checked: 0 (broken: 0), assets missing: 0, singular s
 
 | skill | chars | cjk | ascii | ~tokens |
 |---|---|---|---|---|
-| alpha | 96 | 49 | 24 | 55 |
-| beta | 8 | 0 | 5 | 2 |
-| **TOTAL (2 SKILL.md)** | **104** | **49** | | **57** |
+| speceverything-feature-implementation | 5577 | 3340 | 1341 | 3676 |
+| speceverything-feature-summary | 4898 | 3041 | 1042 | 3302 |
+| speceverything-feature-task-planning | 3923 | 2464 | 793 | 2663 |
+| speceverything-feature-code-review | 4510 | 2216 | 1597 | 2616 |
+| speceverything-feature-release-deploy | 4341 | 2141 | 1525 | 2523 |
+| speceverything-abp-usage | 5640 | 1672 | 3061 | 2438 |
+| speceverything-feature-tech-design | 3565 | 2125 | 878 | 2345 |
+| speceverything-project-dev-standards | 4306 | 1848 | 1517 | 2228 |
+| speceverything-wpf-usage | 4652 | 1456 | 2436 | 2065 |
+| speceverything-bugfix-workflow | 3045 | 1831 | 634 | 1990 |
+| speceverything-spec-standards | 3816 | 1462 | 1767 | 1904 |
+| speceverything-feature-requirements-clarification | 3103 | 1676 | 894 | 1900 |
+| speceverything-feature-blackbox-test | 2789 | 1660 | 654 | 1824 |
+| speceverything-feature-evolution | 2667 | 1552 | 724 | 1733 |
+| speceverything-mysql-usage | 3771 | 1097 | 2017 | 1602 |
+| speceverything-feature-commit-push | 2844 | 1349 | 966 | 1591 |
+| speceverything-project-roadmap-planning | 2768 | 1158 | 981 | 1404 |
+| speceverything-feature-hifi-design | 1915 | 1126 | 473 | 1245 |
+| speceverything-project-requirements-clarification | 1693 | 781 | 604 | 932 |
+| speceverything-project-initialization | 2083 | 645 | 913 | 874 |
+| speceverything-project-tech-stack | 1553 | 573 | 641 | 734 |
+| speceverything-project-product-overview | 1320 | 578 | 481 | 699 |
+| speceverything-project-structure | 1552 | 466 | 798 | 666 |
+| **TOTAL (23 SKILL.md)** | **76331** | **36257** | | **42954** |
 
 ## 5. mudules/*-usage directory-tree requirement
 
 | module | status |
 |---|---|
+| speceverything-wpf-usage | OK |
+| speceverything-mysql-usage | OK |
+| speceverything-abp-usage | OK |
 
 ## 6. duplicate definition check (>=40-char normative line, marker words present, in >=2 distinct files; skills/ + mudules/ only)
 
@@ -46,7 +174,12 @@ CJK BOM missing: 0
 
 | script | status |
 |---|---|
-| (no CJK scripts found) | |
+| tools\skill-audit.ps1 | OK |
+| tools\skill-mutate.ps1 | OK |
+| tools\tests\audit-gates.Tests.ps1 | OK |
+| tools\tests\duplicate-detection.Tests.ps1 | OK |
+| tools\tests\mutation-engine.Tests.ps1 | OK |
+| tools\tests\regression-guard.Tests.ps1 | OK |
 
 ## 8. feature index statuses (specs/features/index.md; enum per spec-standards 第3节)
 
@@ -54,5 +187,5 @@ Index statuses unknown: 0
 
 | feature | status | verdict |
 |---|---|---|
-| (no index file) | | |
+| F001（审计变异测试） 已完成 | OK |
 
