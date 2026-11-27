@@ -110,7 +110,7 @@ D:\Src\SpecEverything\
 | speceverything-feature-blackbox-test | 真实用户模拟验收 | 真实入口按 AC 操作；截图磁盘留证 + 会话展示双轨不可替代；多终端/交互流/多档位全覆盖 |
 | speceverything-feature-evolution | 需求变更 | 变更走 CR 编号流程；行为与既定规格不符走 bugfix-workflow，两者不混用 |
 | speceverything-feature-release-deploy | worktree 分支模型 + 上线发布 | 一需求一 worktree（含清理与需求数据库隔离，唯一定义处）；只从 main 发布；发布记录齐全才可声明上线完成。 |
-| speceverything-feature-commit-push | 提交与推送（feature 最末环节，复盘沉淀之后落库） | 变更清单核对 + 秘密扫描；业务/测试分开提交（唯一定义处）；推送后核对远端；完成后才可宣告交付全部结束 |
+| speceverything-feature-commit-push | 提交与推送（feature 最末环节，复盘沉淀之后落库） | 变更清单核对 + 秘密扫描；业务/测试分开提交（唯一定义处）；收口提交后**二次合并 develop**再清理 worktree；推送后核对远端；完成后才可宣告交付全部结束 |
 | speceverything-feature-summary | 复盘与沉淀（流程收口） | 种子数据评估 → 过程复盘 → 知识沉淀 → 会话交接；四步未完成不得标记交付全部完成 |
 
 ### 项目级（skills/project/）
