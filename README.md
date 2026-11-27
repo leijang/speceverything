@@ -4,7 +4,7 @@
 
 ## 目录结构
 
-> 下图为**运行后完整状态**：`specs/` 与 `docs/` 下除 PROJECT-CONTEXT.md、GUARDRAILS.md 外的文档均由各阶段 skill 在实际交付中生成。当前仓库处于冷启动状态（尚未交付过需求）。
+> 下图为**运行后完整状态**：`specs/` 与 `docs/` 下除 PROJECT-CONTEXT.md、GUARDRAILS.md 外的文档均由各阶段 skill 在实际交付中生成。首个需求 **F001（审计变异测试）已于 2026-11-27 完成全流程交付**（证据：`specs/features/F001-审计变异测试-20261127/交付记录.md`）；树中其余示例路径仍为示意结构，由后续需求逐目录落成。
 
 ```text
 D:\Src\SpecEverything\
@@ -77,7 +77,7 @@ D:\Src\SpecEverything\
 │  └── <tech>-usage/                #   SKILL.md + references/（必含技术目录树 *directory-tree*.md）
 │      └── references/
 │
-└── tools/                           # 复用资产（数据制品/对比/发布断言脚本，feature-summary 登记）
+└── tools/                           # 机械门禁与复用资产：skill-audit.ps1（九节审计）· skill-mutate.ps1（变异自证）· tests/（21 用例 + golden 锚点）· measure-tokens.py（token 实测校准）· 台账与审计证据；改动 skill 库后先跑审计再提交
 ```
 
 ## 交付流程（一个需求的完整生命周期）
