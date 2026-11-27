@@ -102,7 +102,7 @@ Verdict: **CLEAN** -- refs checked: 89 (broken: 0), assets missing: 0, singular 
 |---|---|---|
 | skills\feature\speceverything-feature-code-review\SKILL.md:113 | assets/code-review-report-template.md | OK |
 | skills\feature\speceverything-feature-evolution\SKILL.md:89 | assets/feature-evolution-template.md | OK |
-| skills\feature\speceverything-feature-implementation\SKILL.md:188 | assets/stage-completion-report-template.md | OK |
+| skills\feature\speceverything-feature-implementation\SKILL.md:186 | assets/stage-completion-report-template.md | OK |
 | skills\feature\speceverything-feature-requirements-clarification\SKILL.md:128 | assets/feature-requirements-template.md | OK |
 | skills\feature\speceverything-feature-summary\SKILL.md:47 | assets/过程复盘模板.md | OK |
 | skills\feature\speceverything-feature-summary\SKILL.md:116 | assets/交接文档模板.md | OK |
@@ -127,7 +127,7 @@ Verdict: **CLEAN** -- refs checked: 89 (broken: 0), assets missing: 0, singular 
 
 | skill | chars | cjk | ascii | ~tokens |
 |---|---|---|---|---|
-| speceverything-feature-implementation | 5631 | 3360 | 1366 | 3702 |
+| speceverything-feature-implementation | 5577 | 3340 | 1341 | 3676 |
 | speceverything-feature-summary | 4898 | 3041 | 1042 | 3302 |
 | speceverything-feature-task-planning | 3923 | 2464 | 793 | 2663 |
 | speceverything-feature-code-review | 4510 | 2216 | 1597 | 2616 |
@@ -141,7 +141,7 @@ Verdict: **CLEAN** -- refs checked: 89 (broken: 0), assets missing: 0, singular 
 | speceverything-feature-requirements-clarification | 3103 | 1676 | 894 | 1900 |
 | speceverything-feature-blackbox-test | 2789 | 1660 | 654 | 1824 |
 | speceverything-feature-evolution | 2667 | 1552 | 724 | 1733 |
-| speceverything-mysql-usage | 3769 | 1097 | 2015 | 1601 |
+| speceverything-mysql-usage | 3771 | 1097 | 2017 | 1602 |
 | speceverything-feature-commit-push | 2844 | 1349 | 966 | 1591 |
 | speceverything-project-roadmap-planning | 2768 | 1158 | 981 | 1404 |
 | speceverything-feature-hifi-design | 1915 | 1126 | 473 | 1245 |
@@ -150,7 +150,7 @@ Verdict: **CLEAN** -- refs checked: 89 (broken: 0), assets missing: 0, singular 
 | speceverything-project-tech-stack | 1553 | 573 | 641 | 734 |
 | speceverything-project-product-overview | 1320 | 578 | 481 | 699 |
 | speceverything-project-structure | 1552 | 466 | 798 | 666 |
-| **TOTAL (23 SKILL.md)** | **76383** | **36277** | | **42979** |
+| **TOTAL (23 SKILL.md)** | **76331** | **36257** | | **42954** |
 
 ## 5. mudules/*-usage directory-tree requirement
 
