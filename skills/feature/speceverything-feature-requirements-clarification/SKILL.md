@@ -18,7 +18,7 @@ description: "在任何创意性工作前必须使用：创建功能、构建组
 开始对话前，先建立项目认知。
 - 检查 `specs/PROJECT-CONTEXT.md` 是否存在，存在则按照该文档的内容进行操作(必须)
 - 检查 `specs/产品概述.md` 是否存在，存在则读取
-- 如果都不存在，在对话中自然地了解项目背景
+- 如果都不存在，在对话中自然地了解项目背景；若整个项目尚未初始化（无产品概述/技术栈），先建议用户走项目级 skill（speceverything-project-product-overview、speceverything-project-tech-stack）建立基线，用户明确要求直接开始时才纯对话推进
 
 ---
 

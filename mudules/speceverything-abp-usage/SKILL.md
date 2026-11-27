@@ -60,7 +60,20 @@ Acme.BookStore.Web / HttpApi.Host / DbMigrator / TestBase ...
 
 # 铁律（每条都有官方文档依据）
 
-1. **不臆测 ABP API**。技术决策前先查 ABP 官方文档（索引见 `references/06-doc-index.md`），用文档里的类名、方法名、命名空间。2. **领域逻辑不进应用服务**。应用服务只做：DTO → 实体转换、编排（取数 → 调实体/领域服务 → 存储）、授权、工作单元边界。业务规则写在实体或领域服务里。3. **应用服务 DTO 进 DTO 出**。输入输出都是 DTO，不暴露实体，不暴露 `IQueryable`。4. **每个聚合根一个应用服务 + 一个自定义仓储接口**。仓储接口定义在 Domain 层，实现放在 EF Core 层；应用层用具体接口（`IIdentityUserRepository`），不用泛型 `IRepository<T,TKey>`，不用 `LINQ` 直接查询。5. **授权用 ABP 权限系统**：`PermissionDefinitionProvider` 定义 + `[Authorize(XXXPermissions.Default)]`，不要用原生 ASP.NET Core 策略。6. **异常用 ABP 业务异常 + 本地化错误码**：`BusinessException("ErrorCode")` 或领域层 `throw new BusinessException(...)`；不要裸 `throw new Exception`。7. **校验用 ABP 集成的输入校验**（DataAnnotations / FluentValidation 自动生效），应用服务里不要手工校验 DTO。8. **多租户走 `IMultiTenant` + `ICurrentTenant` + 自动数据过滤**，不要自己加 `TenantId` where 条件。9. **跨模块零外键、零 JOIN**。模块间只通过应用服务/集成服务与分布式事件交互。10. **依赖注入用约定式注册**：命名后缀（`AppService`、`Repository`、`Service`…）自动注册；显式注册用 `ITransientDependency` 等接口，不用手工 `services.Add…` 堆砌。11. **数据库性能优先**：避免 N+1（用 `Include`/一次查询/投影）、避免全表扫描（索引 + EF 映射配置）、批量写优先、事务边界对齐工作单元。12. **预构建模块优先复用**（Identity、IdentityServer/OpenIddict、SettingManagement、AuditLogging、PermissionManagement、TextTemplateManagement、BlobStoring…），不要重造轮子。13. **种子数据用 `IDataSeedContributor`**，禁止手工向数据库插一次性数据。14. **版本与许可**：使用 ABP 最新开源（MIT/LGPL）版本与开源依赖；禁止 ABP 商业（`.Pro`）模块，除非宿主仓库有明确批准记录。
+1. **不臆测 ABP API**。技术决策前先查 ABP 官方文档（索引见 `references/06-doc-index.md`），用文档里的类名、方法名、命名空间。
+2. **领域逻辑不进应用服务**。应用服务只做：DTO → 实体转换、编排（取数 → 调实体/领域服务 → 存储）、授权、工作单元边界。业务规则写在实体或领域服务里。
+3. **应用服务 DTO 进 DTO 出**。输入输出都是 DTO，不暴露实体，不暴露 `IQueryable`。
+4. **每个聚合根一个应用服务 + 一个自定义仓储接口**。仓储接口定义在 Domain 层，实现放在 EF Core 层；应用层用具体接口（`IIdentityUserRepository`），不用泛型 `IRepository<T,TKey>`，不用 `LINQ` 直接查询。
+5. **授权用 ABP 权限系统**：`PermissionDefinitionProvider` 定义 + `[Authorize(XXXPermissions.Default)]`，不要用原生 ASP.NET Core 策略。
+6. **异常用 ABP 业务异常 + 本地化错误码**：`BusinessException("ErrorCode")` 或领域层 `throw new BusinessException(...)`；不要裸 `throw new Exception`。
+7. **校验用 ABP 集成的输入校验**（DataAnnotations / FluentValidation 自动生效），应用服务里不要手工校验 DTO。
+8. **多租户走 `IMultiTenant` + `ICurrentTenant` + 自动数据过滤**，不要自己加 `TenantId` where 条件。
+9. **跨模块零外键、零 JOIN**。模块间只通过应用服务/集成服务与分布式事件交互。
+10. **依赖注入用约定式注册**：命名后缀（`AppService`、`Repository`、`Service`…）自动注册；显式注册用 `ITransientDependency` 等接口，不用手工 `services.Add…` 堆砌。
+11. **数据库性能优先**：避免 N+1（用 `Include`/一次查询/投影）、避免全表扫描（索引 + EF 映射配置）、批量写优先、事务边界对齐工作单元。
+12. **预构建模块优先复用**（Identity、IdentityServer/OpenIddict、SettingManagement、AuditLogging、PermissionManagement、TextTemplateManagement、BlobStoring…），不要重造轮子。
+13. **种子数据用 `IDataSeedContributor`**，禁止手工向数据库插一次性数据。
+14. **版本与许可**：使用 ABP 最新开源（MIT/LGPL）版本与开源依赖；禁止 ABP 商业（`.Pro`）模块，除非宿主仓库有明确批准记录。
 ---
 
 # 常见坑（高频返工点）
@@ -87,4 +100,7 @@ Acme.BookStore.Web / HttpApi.Host / DbMigrator / TestBase ...
 
 # 使用流程
 
-1. **判断任务类型**：新功能 → 先定分层（哪个聚合、哪些 DTO、哪些权限），再写代码；回答问题 → 直接用 references 教程作答并附文档出处。2. **从 references 取模板**：写什么看什么章节，不要凭记忆拼接 API。3. **完成后自检**：对照本文件"铁律"逐条过一遍，尤其是 2/3/4/5/6/13。4. **项目优先**：宿主仓库的 specs/ 规范（编号、AC、TDD、许可例外等）优先于本 Skill 的通用教程。
+1. **判断任务类型**：新功能 → 先定分层（哪个聚合、哪些 DTO、哪些权限），再写代码；回答问题 → 直接用 references 教程作答并附文档出处。
+2. **从 references 取模板**：写什么看什么章节，不要凭记忆拼接 API。
+3. **完成后自检**：对照本文件"铁律"逐条过一遍，尤其是 2/3/4/5/6/13。
+4. **项目优先**：宿主仓库的 specs/ 规范（编号、AC、TDD、许可例外等）优先于本 Skill 的通用教程。

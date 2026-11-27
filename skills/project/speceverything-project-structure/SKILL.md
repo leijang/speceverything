@@ -23,6 +23,7 @@ description: "定义项目目录结构。在技术栈确定后使用，基于技
  1.  **读取上下文**：
      *   读取 `specs/技术栈.md`：确定是用 Next.js 的路由结构，还是 Go 的 clean architecture。
     *   读取 `specs/产品概述.md`：提取“核心板块”（如 Auth, User, Order），将它们映射到模块目录中。
+    *   输入缺失时建议用户先走对应 project 级 skill（speceverything-project-product-overview / speceverything-project-tech-stack）补齐；用户明确要求跳过时按对话确认的信息继续并留痕。
 2.  **设计结构 (Architectural Design)**：
     *   **根目录**：必须包含标准文件（README.md, .gitignore, .env.example）。
     *   **源码目录 (`src/`)**：根据技术栈选择分层架构（Layered）或特性架构（Feature-based）。
@@ -31,8 +32,9 @@ description: "定义项目目录结构。在技术栈确定后使用，基于技
 
 ## 输出模板 (Template)
 1. 检查 `specs/` 目录是否存在，若不存在请自动创建。
-2. 读取 `assets/speceverything-project-structure-template.md` 作为生成基准。
+2. 读取 `assets/project-structure-template.md` 作为生成基准。
 3. 填好后保存为 `specs/项目结构.md`。
+4. 目录结构确认后，按 speceverything-spec-standards §9 建立初始全局架构 `specs/design/架构.md`（Mermaid：模块职责 + 依赖方向，与目录结构一致）——本 skill 是该资产在 project 链路中的建立者。
 
 ---
 

@@ -20,10 +20,10 @@ description: "设计功能的技术实现方案。在功能需求（含验收标
 2. **项目认知建立**：
    - 读取 `specs/PROJECT-CONTEXT.md` 是否存在，存在则按照该文档的内容进行操作(必须)
    - 了解技术栈、项目结构、已有的设计模式和约定
-   - 如果项目上下文不清晰，在对话中自然地了解
+   - 如果项目上下文不清晰，在对话中自然地了解；`specs/技术栈.md` 缺失时建议用户先走 speceverything-project-tech-stack 落盘（技术决策需可追溯），用户跳过时在本方案中显式记录技术栈并建议后续补建
 
 3. **技术实践检索（强制）**：扫描 `mudules/` 下与本次设计涉及技术栈匹配的 `*-usage` skill（如 abp-usage、mysql-usage）：
-   - **命中**：按该 skill 的最佳实践与参考文档设计，关键设计点标注依据（如"依据 mudules/speceverything-abp-usage §2 分层规则"）；目录落地参考其**技术目录树**（references/*directory-tree*.md），与其冲突的项目红线以 specs/ 规范为准；
+   - **命中**：按该 skill 的最佳实践与参考文档设计，关键设计点标注依据（如"依据 mudules/speceverything-abp-usage 分层决策表"）；目录落地参考其**技术目录树**（references/*directory-tree*.md），与其冲突的项目红线以 specs/ 规范为准；
    - **未命中**：自行发挥——检索该技术官方文档获取推荐实践（不臆测框架用法），检索结论在设计对话中留痕。
 
 ---

@@ -1,6 +1,6 @@
 ---
 name: "speceverything-project-requirements-clarification"
-description: "项目启动阶段使用。通过苏格拉底式提问澄清原始想法，挖掘核心价值、目标用户和关键特性，生成标准化项目描述。"
+description: "项目启动阶段使用。通过苏格拉底式提问澄清原始想法，挖掘核心价值、目标用户和关键特性，生成标准化项目描述。仅用于全新项目的首次启动；已有项目做单个功能走 feature 级的 speceverything-feature-requirements-clarification。"
 ---
 
 # Role: 需求挖掘专家 (Requirements Analyst)

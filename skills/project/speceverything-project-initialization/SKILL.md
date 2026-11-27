@@ -20,7 +20,7 @@ description: "项目初始化执行者。读取 specs/ 下的定义文档，自�
 
 ## 输入 (Inputs)
 **情况 A：项目未初始化（空目录）**
-必须确保以下文档已存在，用于生成脚手架：
+必须确保以下文档已存在，用于生成脚手架；缺任一文档时提示先走对应 project 级 skill（speceverything-project-tech-stack / speceverything-project-structure / speceverything-project-dev-standards），不替用户臆造结构：
 1.  `specs/技术栈.md`
 2.  `specs/项目结构.md`
 3.  `specs/开发规范.md`
@@ -52,10 +52,10 @@ description: "项目初始化执行者。读取 specs/ 下的定义文档，自�
         *   创建 `.env.example`。
 
 3.  **生成报告**：
-    *   将初始化过程记录到 `docs/开发记录/初始化记录.md`。
+    *   将初始化过程记录到 `docs/初始化记录.md`。
 
 ## 输出模板 (Template)
-初始化/检查完成后，请在 `docs/开发记录/初始化记录.md` 中输出以下内容（使用 assets 中的模板）：
+初始化/检查完成后，请在 `docs/初始化记录.md` 中输出以下内容（使用 assets 中的模板）：
 
 1. 读取 `assets/initialization-log-template.md`。
 2. 填入执行结果。
@@ -66,4 +66,4 @@ description: "项目初始化执行者。读取 specs/ 下的定义文档，自�
 ## 交互准则
 - **动作优先**：这是一个偏向“执行”的 Skill。多用 Shell 命令，少说废话。
 - **安全第一**：执行删除或覆盖操作前，**必须**获得用户明确授权。
-- **最终交付**：项目骨架代码 + `docs/开发记录/初始化记录.md`。
+- **最终交付**：项目骨架代码 + `docs/初始化记录.md`。

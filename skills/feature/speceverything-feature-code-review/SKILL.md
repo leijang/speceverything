@@ -23,7 +23,7 @@ description: "代码复核（实现在黑盒验收前的质量门）。在一个
 
 复核增量变更任务时另读对应的 `变更任务_CR-XXX-变更题目.md`。
 
-同时读取：`specs/PROJECT-CONTEXT.md`（存在则必须遵守）、`specs/开发规范.md`（规范依据）、`specs/design/架构.md`（全局架构依据）。
+同时读取：`specs/PROJECT-CONTEXT.md`（存在则必须遵守）、`specs/开发规范.md`（规范依据；冷启动尚不存在时按 GUARDRAILS、PROJECT-CONTEXT 与 mudules 技术目录树核对，复核报告标注"规范基线缺失"并建议走 speceverything-project-dev-standards 建立）、`specs/design/架构.md`（全局架构依据）。
 
 确认复核范围内的代码处于已提交状态（每任务完成即可提交，见 speceverything-feature-implementation 提交纪律）。
 
@@ -70,7 +70,7 @@ description: "代码复核（实现在黑盒验收前的质量门）。在一个
 - speceverything-feature-implementation 红线：无兜底式实现（静默吞异常、防御分支拉回、默认值糊弄）、无重复平行实现（双状态机/双 key/双样式类——这是"先搜现有实现"纪律的验收）
 - 测试质量：断言业务可观察结果而非瞬时提示、无共享状态污染、无被注解跳过的测试
 
-判定规则：违反规范 → 当场修复并重跑相关测试；**同类问题已第二次出现** → 按错题本机制沉淀"可核对的预防措施"条目（条目格式见 speceverything-feature-summary §7 / speceverything-project-dev-standards §13），第三次出现前必须有规则拦截。
+判定规则：违反规范 → 当场修复并重跑相关测试；**同类问题已第二次出现** → 按错题本机制沉淀"可核对的预防措施"条目（条目格式见 speceverything-feature-summary §7），第三次出现前必须有规则拦截。
 
 ---
 
@@ -116,7 +116,7 @@ description: "代码复核（实现在黑盒验收前的质量门）。在一个
 
 - 有 C2/C3 时，同步在会话中向用户渲染问题清单（证据双轨精神：落盘 + 当场展示）。
 - 若复核改变了全局架构图或既有规格文档的描述，同步更新对应文档（spec-standards §9 同步义务）。
-- 索引状态不变更（代码复核不改变需求的阶段状态，状态推进由验收/发布环节负责）。
+- 索引状态不推进到"已完成"；本阶段完成后由本 skill 把状态推进为"已实现/待验收"（映射表见 speceverything-spec-standards §3）。
 
 ---
 

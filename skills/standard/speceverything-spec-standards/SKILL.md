@@ -17,13 +17,15 @@ description: "规格创建规范（specs/ 体系与命名体系的唯一定义�
 | 文档 | 产出方 |
 |---|---|
 | `需求说明.md` | speceverything-feature-requirements-clarification |
-| `UI设计.png` | speceverything-feature-hifi-design |
+| `UI设计图/` | speceverything-feature-hifi-design |
 | `技术方案.md` | speceverything-feature-tech-design |
 | `任务规划.md` | speceverything-feature-task-planning |
 | `变更任务_CR-XXX-变更题目.md` | speceverything-feature-evolution |
 | `编码复核.md` | speceverything-feature-code-review |
 | `验收截图/` | speceverything-feature-blackbox-test |
 | `过程复盘.md` | speceverything-feature-summary |
+| `测试用例.md` | speceverything-feature-blackbox-test |
+| `交付记录.md` | summary（种子评估）→ release-deploy（发布记录）→ commit-push（提交哈希与清理结果） |
 | `specs/features/index.md` | 所有产出方（新建或状态变更时同步） |
 
 禁止扁平命名（如 `specs/features/{功能名}_技术方案.md`）——同需求的所有文档必须聚在其规格目录内。
@@ -31,6 +33,7 @@ description: "规格创建规范（specs/ 体系与命名体系的唯一定义�
 至少区分：规划中、需求已确认、设计已确认、开发中、已实现/待验收、已完成、修复中、已取消。
 - 状态必须反映**真实证据**，不以代码存在代替验收完成。
 - 新建规格、状态变更、CR 登记时必须同步更新 `specs/features/index.md`。
+- **状态由完成该阶段动作的 skill 推进**（与阶段产出落盘同一动作内更新），映射：①完成 → 需求已确认；③完成 → 设计已确认；⑤首个任务动工 → 开发中；⑥复核通过 → 已实现/待验收；⑦验收通过且⑧合并发布完成 → 已完成；bugfix-workflow 立案 → 修复中。
 ## 4. 编号体系
 
 | 编号 | 含义 | 递增起点 |
