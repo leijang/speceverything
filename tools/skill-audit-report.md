@@ -191,7 +191,7 @@ Index statuses unknown: 0
 
 ## 9. commit message convention (subjects reachable from HEAD per dev-standards 第7节; git-side match, ASCII rows)
 
-Commit subjects checked: 36 (non-conventional: 0)
+Commit subjects checked: 41 (non-conventional: 0)
 
 | commit | verdict |
 |---|---|
