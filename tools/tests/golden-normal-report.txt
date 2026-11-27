@@ -1,7 +1,6 @@
 ﻿# Skill Library Mechanical Audit
 
-
-Verdict: **CLEAN** -- refs checked: 61 (broken: 0), assets missing: 0, singular spec/ paths: 0, mudules missing tree: 0
+Verdict: **CLEAN** -- refs checked: 87 (broken: 0), assets missing: 0, singular spec/ paths: 0, mudules missing tree: 0
 
 ## 1. Section reference check (skill name + SS number -> target heading exists)
 
@@ -68,6 +67,32 @@ Verdict: **CLEAN** -- refs checked: 61 (broken: 0), assets missing: 0, singular 
 | skills\speceverything-bugfix-workflow\SKILL.md:143 | skills\speceverything-bugfix-workflow\SKILL.md | 2.1 | OK |
 | skills\standard\speceverything-spec-standards\SKILL.md:50 | skills\standard\speceverything-spec-standards\SKILL.md | 4 | OK |
 | skills\standard\speceverything-spec-standards\SKILL.md:60 | skills\feature\speceverything-feature-release-deploy\SKILL.md | 2 | OK |
+| specs\design\架构.md:3 | skills\standard\speceverything-spec-standards\SKILL.md | 9 | OK |
+| specs\design\架构.md:56 | skills\standard\speceverything-spec-standards\SKILL.md | 9 | OK |
+| specs\features\index.md:3 | skills\standard\speceverything-spec-standards\SKILL.md | 3 | OK |
+| specs\features\F001-审计变异测试-20261127\变更任务_CR-001-AC005回归保护口径修正.md:62 | specs\features\F001-审计变异测试-20261127\变更任务_CR-001-AC005回归保护口径修正.md | 1 | OK |
+| specs\features\F001-审计变异测试-20261127\变更任务_CR-001-AC005回归保护口径修正.md:62 | specs\features\F001-审计变异测试-20261127\变更任务_CR-001-AC005回归保护口径修正.md | 5 | OK |
+| specs\features\F001-审计变异测试-20261127\技术方案.md:24 | specs\features\F001-审计变异测试-20261127\技术方案.md | 1 | OK |
+| specs\features\F001-审计变异测试-20261127\技术方案.md:24 | specs\features\F001-审计变异测试-20261127\技术方案.md | 5 | OK |
+| specs\features\F001-审计变异测试-20261127\技术方案.md:42 | specs\features\F001-审计变异测试-20261127\技术方案.md | 1 | OK |
+| specs\features\F001-审计变异测试-20261127\技术方案.md:42 | specs\features\F001-审计变异测试-20261127\技术方案.md | 5 | OK |
+| specs\features\F001-审计变异测试-20261127\技术方案.md:42 | specs\features\F001-审计变异测试-20261127\技术方案.md | 6 | OK |
+| specs\features\F001-审计变异测试-20261127\技术方案.md:62 | specs\features\F001-审计变异测试-20261127\技术方案.md | 6 | OK |
+| specs\features\F001-审计变异测试-20261127\技术方案.md:62 | specs\features\F001-审计变异测试-20261127\技术方案.md | 1 | OK |
+| specs\features\F001-审计变异测试-20261127\技术方案.md:62 | specs\features\F001-审计变异测试-20261127\技术方案.md | 5 | OK |
+| specs\features\F001-审计变异测试-20261127\技术方案.md:101 | specs\features\F001-审计变异测试-20261127\技术方案.md | 6 | OK |
+| specs\features\F001-审计变异测试-20261127\技术方案.md:123 | specs\features\F001-审计变异测试-20261127\技术方案.md | 6 | OK |
+| specs\features\F001-审计变异测试-20261127\技术方案.md:155 | specs\features\F001-审计变异测试-20261127\技术方案.md | 6 | OK |
+| specs\features\F001-审计变异测试-20261127\技术方案.md:198 | specs\features\F001-审计变异测试-20261127\技术方案.md | 7 | OK |
+| specs\features\F001-审计变异测试-20261127\技术方案.md:198 | specs\features\F001-审计变异测试-20261127\技术方案.md | 7 | OK |
+| specs\features\F001-审计变异测试-20261127\技术方案.md:198 | specs\features\F001-审计变异测试-20261127\技术方案.md | 7 | OK |
+| specs\features\F001-审计变异测试-20261127\技术方案.md:199 | specs\features\F001-审计变异测试-20261127\技术方案.md | 7 | OK |
+| specs\features\F001-审计变异测试-20261127\技术方案.md:200 | specs\features\F001-审计变异测试-20261127\技术方案.md | 7 | OK |
+| specs\features\F001-审计变异测试-20261127\技术方案.md:201 | specs\features\F001-审计变异测试-20261127\技术方案.md | 7 | OK |
+| specs\features\F001-审计变异测试-20261127\技术方案.md:202 | specs\features\F001-审计变异测试-20261127\技术方案.md | 6 | OK |
+| specs\features\F001-审计变异测试-20261127\技术方案.md:211 | specs\features\F001-审计变异测试-20261127\技术方案.md | 7 | OK |
+| specs\features\F001-审计变异测试-20261127\需求说明.md:117 | specs\features\F001-审计变异测试-20261127\需求说明.md | 5 | OK |
+| specs\features\F001-审计变异测试-20261127\需求说明.md:117 | specs\features\F001-审计变异测试-20261127\需求说明.md | 6 | OK |
 
 ## 2. assets/ template existence
 
@@ -132,4 +157,12 @@ Verdict: **CLEAN** -- refs checked: 61 (broken: 0), assets missing: 0, singular 
 | speceverything-wpf-usage | OK |
 | speceverything-mysql-usage | OK |
 | speceverything-abp-usage | OK |
+
+## 6. duplicate definition check (>=40-char normative line, marker words present, in >=2 distinct files; skills/ + mudules/ only)
+
+Duplicate definitions: 0
+
+| first | other | line (<=60 chars) |
+|---|---|---|
+| (none) | | |
 
