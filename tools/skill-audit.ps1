@@ -1,4 +1,4 @@
-# skill-audit.ps1 -- mechanical audit of the SpecEverything skill library.
+﻿# skill-audit.ps1 -- mechanical audit of the SpecEverything skill library.
 #
 # What it checks (all reproducible, third-party verifiable):
 #   1. Every "skill-name SS N" / bare "SS N" section reference resolves to a real numbered heading.
@@ -8,12 +8,21 @@
 #      Estimate formula: tokens ~= CJK + ascii/4 (upper bound; used for RELATIVE budget control only).
 #   5. Every mudules/*-usage skill ships a references/*directory-tree*.md.
 #
-# Usage:   powershell -NoProfile -ExecutionPolicy Bypass -File tools\skill-audit.ps1
+# Usage:   powershell -NoProfile -ExecutionPolicy Bypass -File tools\skill-audit.ps1 [-ScanRoot <path>]
 # Output:  tools/skill-audit-report.md (regenerated on every run; commit the snapshot as evidence)
 # Exit:    0 = clean, 1 = findings.
+#
+# -ScanRoot is the test seam (default: repo root = parent of tools/); zero-arg behavior is the contract
+# guarded by tests/golden-normal-report.txt (F001 AC-005).
+#
+# NOTE (F001): since the duplicate-definition check this file now contains CJK literals (marker words +
+# comments). It MUST stay saved as UTF-8 **with BOM** -- without BOM, PS 5.1 reads it as ANSI and the
+# marker regex silently degrades to garbage (misses every hit).
+
+param([string]$ScanRoot = '')
 
 $ErrorActionPreference = 'Stop'
-$root    = Split-Path -Parent $PSScriptRoot
+$root    = if ($ScanRoot) { (Resolve-Path -LiteralPath $ScanRoot).Path } else { Split-Path -Parent $PSScriptRoot }
 $outPath = Join-Path $PSScriptRoot 'skill-audit-report.md'
 $utf8BOM = New-Object System.Text.UTF8Encoding($true)
 $utf8    = [System.Text.Encoding]::UTF8
@@ -126,7 +135,41 @@ foreach ($k in @($skillMap.Keys)) {
     $mudRows.Add("| $k | $(if ($tree.Count -gt 0) {'OK'} else {'**MISSING directory-tree**'}) |")
 }
 
-$clean = ($refBroken -eq 0 -and $assetMissing -eq 0 -and $specHits -eq 0 -and $mudMissing -eq 0)
+# 6. duplicate definition check (F001): >=40-char NORMATIVE line (必须/禁止/不得/严禁/一律/唯一定义处)
+#    present in >=2 distinct files under skills/ + mudules/.
+#    Marker filter: first live run without it flagged 22 structural boilerplate repeats (SQL examples,
+#    stage declarations, context pointers) as false positives; rules drift lives in marker-bearing sentences
+#    (known real case: the mistake-ledger entry double definition, collapsed 2026-11-27, contains 必须).
+$dupRows = New-Object System.Collections.Generic.List[string]
+$dupHits = 0
+$lineMap = @{}
+foreach ($dir in @('skills', 'mudules')) {
+    $p = Join-Path $root $dir
+    if (-not (Test-Path -LiteralPath $p)) { continue }
+    foreach ($f in (Get-ChildItem -LiteralPath $p -Recurse -Filter '*.md')) {
+        $ln = 0
+        foreach ($line in [IO.File]::ReadAllLines($f.FullName, $utf8)) {
+            $ln++
+            $t = $line.Trim()
+            if ($t.Length -lt 40) { continue }
+            if ($t -notmatch '必须|禁止|不得|严禁|一律|唯一定义处') { continue }
+            if (-not $lineMap.ContainsKey($t)) { $lineMap[$t] = New-Object System.Collections.Generic.List[string] }
+            $rel = $f.FullName.Substring($root.Length + 1)
+            $lineMap[$t].Add("$rel`:$ln")
+        }
+    }
+}
+foreach ($k in @($lineMap.Keys)) {
+    $locs = $lineMap[$k]
+    $files = @($locs | ForEach-Object { ($_ -split ':')[0] } | Select-Object -Unique)
+    if ($files.Count -ge 2) {
+        $dupHits++
+        $snippet = $k; if ($snippet.Length -gt 60) { $snippet = $snippet.Substring(0, 60) + '...' }
+        $dupRows.Add("| $($locs[0]) | $($locs[1]) | $snippet |")
+    }
+}
+
+$clean = ($refBroken -eq 0 -and $assetMissing -eq 0 -and $specHits -eq 0 -and $mudMissing -eq 0 -and $dupHits -eq 0)
 
 $L = New-Object System.Collections.Generic.List[string]
 $L.Add('# Skill Library Mechanical Audit')
@@ -166,7 +209,15 @@ $L.Add('| module | status |')
 $L.Add('|---|---|')
 foreach ($r in $mudRows) { $L.Add($r) }
 $L.Add('')
+$L.Add('## 6. duplicate definition check (>=40-char normative line, marker words present, in >=2 distinct files; skills/ + mudules/ only)')
+$L.Add('')
+$L.Add("Duplicate definitions: $dupHits")
+$L.Add('')
+$L.Add('| first | other | line (<=60 chars) |')
+$L.Add('|---|---|---|')
+if ($dupRows.Count -eq 0) { $L.Add('| (none) | | |') } else { foreach ($r in $dupRows) { $L.Add($r) } }
+$L.Add('')
 
 [IO.File]::WriteAllLines($outPath, $L, $utf8BOM)
-Write-Output ("audit done: refs=$refTotal broken=$refBroken assetsMissing=$assetMissing specPaths=$specHits mudTreeMissing=$mudMissing report=$outPath")
+Write-Output ("audit done: refs=$refTotal broken=$refBroken assetsMissing=$assetMissing specPaths=$specHits mudTreeMissing=$mudMissing dups=$dupHits report=$outPath")
 if ($clean) { exit 0 } else { exit 1 }
