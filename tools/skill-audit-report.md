@@ -102,7 +102,7 @@ Verdict: **CLEAN** -- refs checked: 89 (broken: 0), assets missing: 0, singular 
 |---|---|---|
 | skills\feature\speceverything-feature-code-review\SKILL.md:113 | assets/code-review-report-template.md | OK |
 | skills\feature\speceverything-feature-evolution\SKILL.md:89 | assets/feature-evolution-template.md | OK |
-| skills\feature\speceverything-feature-implementation\SKILL.md:186 | assets/stage-completion-report-template.md | OK |
+| skills\feature\speceverything-feature-implementation\SKILL.md:194 | assets/stage-completion-report-template.md | OK |
 | skills\feature\speceverything-feature-requirements-clarification\SKILL.md:128 | assets/feature-requirements-template.md | OK |
 | skills\feature\speceverything-feature-summary\SKILL.md:47 | assets/过程复盘模板.md | OK |
 | skills\feature\speceverything-feature-summary\SKILL.md:116 | assets/交接文档模板.md | OK |
@@ -127,7 +127,7 @@ Verdict: **CLEAN** -- refs checked: 89 (broken: 0), assets missing: 0, singular 
 
 | skill | chars | cjk | ascii | ~tokens |
 |---|---|---|---|---|
-| speceverything-feature-implementation | 5577 | 3340 | 1341 | 3676 |
+| speceverything-feature-implementation | 5951 | 3609 | 1379 | 3954 |
 | speceverything-feature-summary | 4898 | 3041 | 1042 | 3302 |
 | speceverything-feature-task-planning | 3923 | 2464 | 793 | 2663 |
 | speceverything-feature-code-review | 4510 | 2216 | 1597 | 2616 |
@@ -150,7 +150,7 @@ Verdict: **CLEAN** -- refs checked: 89 (broken: 0), assets missing: 0, singular 
 | speceverything-project-tech-stack | 1553 | 573 | 641 | 734 |
 | speceverything-project-structure | 1644 | 510 | 837 | 720 |
 | speceverything-project-product-overview | 1320 | 578 | 481 | 699 |
-| **TOTAL (23 SKILL.md)** | **77085** | **36622** | | **43389** |
+| **TOTAL (23 SKILL.md)** | **77459** | **36891** | | **43667** |
 
 ## 5. mudules/*-usage directory-tree requirement
 
@@ -191,7 +191,7 @@ Index statuses unknown: 0
 
 ## 9. commit message convention (subjects reachable from HEAD per dev-standards 第7节; git-side match, ASCII rows)
 
-Commit subjects checked: 53 (non-conventional: 0)
+Commit subjects checked: 54 (non-conventional: 0)
 
 | commit | verdict |
 |---|---|
