@@ -43,8 +43,8 @@ Describe 'AC-005 normal-mode contract (golden regression)' {
         $norm = '本行包含必须这一规范标记词，并且整行长度明显超过四十个字符上限，以便稳定命中双定义检测机制。'
         try {
             New-Item -ItemType Directory -Path (Join-Path $fx 'skills\alpha'), (Join-Path $fx 'skills\beta') -Force | Out-Null
-            [IO.File]::WriteAllLines((Join-Path $fx 'skills\alpha\SKILL.md'), @('# alpha', $norm))
-            [IO.File]::WriteAllLines((Join-Path $fx 'skills\beta\SKILL.md'), @('# beta', $norm))
+            [IO.File]::WriteAllLines((Join-Path $fx 'skills\alpha\SKILL.md'), @('---', 'name: "alpha"', 'description: "Sandbox alpha fixture."', '---', '# alpha', $norm))
+            [IO.File]::WriteAllLines((Join-Path $fx 'skills\beta\SKILL.md'), @('---', 'name: "beta"', 'description: "Sandbox beta fixture."', '---', '# beta', $norm))
             powershell -NoProfile -ExecutionPolicy Bypass -File $audit -ScanRoot $fx | Out-Null
             $LASTEXITCODE | Should Be 1
         } finally { Remove-Item -Recurse -Force $fx -ErrorAction SilentlyContinue }

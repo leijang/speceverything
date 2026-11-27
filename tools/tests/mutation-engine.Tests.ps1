@@ -9,8 +9,8 @@ $normLine = '本行包含必须这一规范标记词，并且整行长度明显�
 function New-Sandbox([string]$Name) {
     $fx = Join-Path ([IO.Path]::GetTempPath()) "mutfix-$Name-$(Get-Random)"
     New-Item -ItemType Directory -Path (Join-Path $fx 'skills\alpha'), (Join-Path $fx 'skills\beta') -Force | Out-Null
-    [IO.File]::WriteAllLines((Join-Path $fx 'skills\alpha\SKILL.md'), @('# alpha', '路径占位 specs/features/xxx 结束', $normLine))
-    [IO.File]::WriteAllLines((Join-Path $fx 'skills\beta\SKILL.md'), @('# beta'))
+    [IO.File]::WriteAllLines((Join-Path $fx 'skills\alpha\SKILL.md'), @('---', 'name: "alpha"', 'description: "Sandbox alpha fixture for mutation engine tests."', '---', '# alpha', '路径占位 specs/features/xxx 结束', $normLine))
+    [IO.File]::WriteAllLines((Join-Path $fx 'skills\beta\SKILL.md'), @('---', 'name: "beta"', 'description: "Sandbox beta fixture for mutation engine tests."', '---', '# beta'))
     git -C $fx init | Out-Null
     git -C $fx -c user.name=t -c user.email=t@t add -A | Out-Null
     git -C $fx -c user.name=t -c user.email=t@t commit -m 'chore: init sandbox library' | Out-Null

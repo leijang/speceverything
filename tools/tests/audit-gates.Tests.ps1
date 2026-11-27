@@ -99,3 +99,37 @@ Describe 'skill-audit section 8: feature index status gate' {
         $text | Should Match 'Index statuses unknown: 0'
     }
 }
+
+Describe 'skill-audit section 10: Agent Skills spec compliance' {
+    It 'flags name/dir mismatch, oversized description, and non-standard fields in a sandbox' {
+        $fx = Join-Path ([IO.Path]::GetTempPath()) "specfix-$(Get-Random)"
+        try {
+            New-Item -ItemType Directory -Path (Join-Path $fx 'skills\wrong-name') -Force | Out-Null
+            $longDesc = 'x' * 1025
+            $sk = @('---', 'name: "totally-different"', 'slug: extra-field', "description: `"$longDesc`"", '---', '# body')
+            [IO.File]::WriteAllLines((Join-Path $fx 'skills\wrong-name\SKILL.md'), $sk, (New-Object System.Text.UTF8Encoding($true)))
+            $report = Invoke-AuditAt $fx
+            $text = [IO.File]::ReadAllText($report)
+            $text | Should Match 'Spec violations: 3'
+            $text | Should Match 'wrong-name'
+        } finally { Remove-Item -Recurse -Force $fx -ErrorAction SilentlyContinue }
+    }
+
+    It 'accepts a fully compliant skill (fields incl. metadata sub-block)' {
+        $fx = Join-Path ([IO.Path]::GetTempPath()) "specok-$(Get-Random)"
+        try {
+            New-Item -ItemType Directory -Path (Join-Path $fx 'skills\good-skill') -Force | Out-Null
+            $sk = @('---', 'name: "good-skill"', 'description: "A good skill for testing spec compliance."', 'metadata:', '  author: x', '  version: "1.0"', '---', '# body')
+            [IO.File]::WriteAllLines((Join-Path $fx 'skills\good-skill\SKILL.md'), $sk, (New-Object System.Text.UTF8Encoding($true)))
+            $report = Invoke-AuditAt $fx
+            $text = [IO.File]::ReadAllText($report)
+            $text | Should Match 'Spec violations: 0'
+        } finally { Remove-Item -Recurse -Force $fx -ErrorAction SilentlyContinue }
+    }
+
+    It 'real repo: all 23 skill packages comply with the spec' {
+        $report = Invoke-AuditAt ''
+        $text = [IO.File]::ReadAllText($report)
+        $text | Should Match 'Spec violations: 0'
+    }
+}
