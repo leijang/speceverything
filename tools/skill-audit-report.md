@@ -8,19 +8,19 @@ Verdict: **CLEAN** -- refs checked: 89 (broken: 0), assets missing: 0, singular 
 |---|---|---|---|
 | README.md:21 | (runtime doc) | 3 | RUNTIME-DOC |
 | README.md:24 | skills\standard\speceverything-spec-standards\SKILL.md | 9 | OK |
-| README.md:137 | skills\standard\speceverything-spec-standards\SKILL.md | 1 | OK |
-| README.md:137 | skills\standard\speceverything-spec-standards\SKILL.md | 2 | OK |
-| README.md:138 | skills\standard\speceverything-spec-standards\SKILL.md | 3 | OK |
-| README.md:138 | skills\standard\speceverything-spec-standards\SKILL.md | 6 | OK |
-| README.md:140 | skills\feature\speceverything-feature-release-deploy\SKILL.md | 2 | OK |
-| README.md:141 | skills\standard\speceverything-spec-standards\SKILL.md | 10 | OK |
-| README.md:142 | skills\feature\speceverything-feature-release-deploy\SKILL.md | 2.1 | OK |
-| README.md:142 | skills\feature\speceverything-feature-release-deploy\SKILL.md | 2.2 | OK |
-| README.md:145 | skills\feature\speceverything-feature-commit-push\SKILL.md | 3 | OK |
-| README.md:145 | skills\feature\speceverything-feature-commit-push\SKILL.md | 5 | OK |
-| README.md:146 | skills\feature\speceverything-feature-blackbox-test\SKILL.md | 4 | OK |
-| README.md:148 | skills\feature\speceverything-feature-summary\SKILL.md | 7 | OK |
-| README.md:150 | skills\standard\speceverything-spec-standards\SKILL.md | 9 | OK |
+| README.md:138 | skills\standard\speceverything-spec-standards\SKILL.md | 1 | OK |
+| README.md:138 | skills\standard\speceverything-spec-standards\SKILL.md | 2 | OK |
+| README.md:139 | skills\standard\speceverything-spec-standards\SKILL.md | 3 | OK |
+| README.md:139 | skills\standard\speceverything-spec-standards\SKILL.md | 6 | OK |
+| README.md:141 | skills\feature\speceverything-feature-release-deploy\SKILL.md | 2 | OK |
+| README.md:142 | skills\standard\speceverything-spec-standards\SKILL.md | 10 | OK |
+| README.md:143 | skills\feature\speceverything-feature-release-deploy\SKILL.md | 2.1 | OK |
+| README.md:143 | skills\feature\speceverything-feature-release-deploy\SKILL.md | 2.2 | OK |
+| README.md:146 | skills\feature\speceverything-feature-commit-push\SKILL.md | 3 | OK |
+| README.md:146 | skills\feature\speceverything-feature-commit-push\SKILL.md | 5 | OK |
+| README.md:147 | skills\feature\speceverything-feature-blackbox-test\SKILL.md | 4 | OK |
+| README.md:149 | skills\feature\speceverything-feature-summary\SKILL.md | 7 | OK |
+| README.md:151 | skills\standard\speceverything-spec-standards\SKILL.md | 9 | OK |
 | mudules\speceverything-mysql-usage\references\directory-tree.md:48 | skills\feature\speceverything-feature-summary\SKILL.md | 2 | OK |
 | mudules\speceverything-wpf-usage\references\04-performance-and-leaks.md:48 | mudules\speceverything-wpf-usage\references\04-performance-and-leaks.md | 5 | OK |
 | skills\feature\speceverything-feature-blackbox-test\SKILL.md:27 | skills\standard\speceverything-spec-standards\SKILL.md | 2 | OK |
@@ -48,10 +48,10 @@ Verdict: **CLEAN** -- refs checked: 89 (broken: 0), assets missing: 0, singular 
 | skills\feature\speceverything-feature-implementation\SKILL.md:155 | skills\feature\speceverything-feature-summary\SKILL.md | 6 | OK |
 | skills\feature\speceverything-feature-release-deploy\SKILL.md:23 | skills\standard\speceverything-spec-standards\SKILL.md | 4.1 | OK |
 | skills\feature\speceverything-feature-release-deploy\SKILL.md:24 | skills\feature\speceverything-feature-release-deploy\SKILL.md | 2.1 | OK |
-| skills\feature\speceverything-feature-release-deploy\SKILL.md:36 | skills\feature\speceverything-feature-release-deploy\SKILL.md | 2.2 | OK |
-| skills\feature\speceverything-feature-release-deploy\SKILL.md:61 | skills\feature\speceverything-feature-blackbox-test\SKILL.md | 4 | OK |
-| skills\feature\speceverything-feature-release-deploy\SKILL.md:63 | skills\feature\speceverything-feature-release-deploy\SKILL.md | 5 | OK |
-| skills\feature\speceverything-feature-release-deploy\SKILL.md:74 | skills\feature\speceverything-feature-release-deploy\SKILL.md | 2 | OK |
+| skills\feature\speceverything-feature-release-deploy\SKILL.md:37 | skills\feature\speceverything-feature-release-deploy\SKILL.md | 2.2 | OK |
+| skills\feature\speceverything-feature-release-deploy\SKILL.md:62 | skills\feature\speceverything-feature-blackbox-test\SKILL.md | 4 | OK |
+| skills\feature\speceverything-feature-release-deploy\SKILL.md:64 | skills\feature\speceverything-feature-release-deploy\SKILL.md | 5 | OK |
+| skills\feature\speceverything-feature-release-deploy\SKILL.md:75 | skills\feature\speceverything-feature-release-deploy\SKILL.md | 2 | OK |
 | skills\feature\speceverything-feature-summary\SKILL.md:14 | skills\feature\speceverything-feature-summary\SKILL.md | 2 | OK |
 | skills\feature\speceverything-feature-summary\SKILL.md:15 | skills\feature\speceverything-feature-summary\SKILL.md | 3 | OK |
 | skills\feature\speceverything-feature-summary\SKILL.md:16 | skills\feature\speceverything-feature-summary\SKILL.md | 4 | OK |
@@ -131,7 +131,7 @@ Verdict: **CLEAN** -- refs checked: 89 (broken: 0), assets missing: 0, singular 
 | speceverything-feature-summary | 4898 | 3041 | 1042 | 3302 |
 | speceverything-feature-task-planning | 3923 | 2464 | 793 | 2663 |
 | speceverything-feature-code-review | 4510 | 2216 | 1597 | 2616 |
-| speceverything-feature-release-deploy | 4341 | 2141 | 1525 | 2523 |
+| speceverything-feature-release-deploy | 4472 | 2201 | 1580 | 2596 |
 | speceverything-abp-usage | 5640 | 1672 | 3061 | 2438 |
 | speceverything-feature-tech-design | 3565 | 2125 | 878 | 2345 |
 | speceverything-project-dev-standards | 4306 | 1848 | 1517 | 2228 |
@@ -141,7 +141,7 @@ Verdict: **CLEAN** -- refs checked: 89 (broken: 0), assets missing: 0, singular 
 | speceverything-feature-requirements-clarification | 3103 | 1676 | 894 | 1900 |
 | speceverything-feature-blackbox-test | 2789 | 1660 | 654 | 1824 |
 | speceverything-feature-evolution | 2667 | 1552 | 724 | 1733 |
-| speceverything-mysql-usage | 3771 | 1097 | 2017 | 1602 |
+| speceverything-mysql-usage | 3781 | 1097 | 2021 | 1603 |
 | speceverything-feature-commit-push | 2844 | 1349 | 966 | 1591 |
 | speceverything-project-roadmap-planning | 2768 | 1158 | 981 | 1404 |
 | speceverything-feature-hifi-design | 1915 | 1126 | 473 | 1245 |
@@ -150,7 +150,7 @@ Verdict: **CLEAN** -- refs checked: 89 (broken: 0), assets missing: 0, singular 
 | speceverything-project-tech-stack | 1553 | 573 | 641 | 734 |
 | speceverything-project-product-overview | 1320 | 578 | 481 | 699 |
 | speceverything-project-structure | 1552 | 466 | 798 | 666 |
-| **TOTAL (23 SKILL.md)** | **76331** | **36257** | | **42954** |
+| **TOTAL (23 SKILL.md)** | **76472** | **36317** | | **43028** |
 
 ## 5. mudules/*-usage directory-tree requirement
 
@@ -191,9 +191,17 @@ Index statuses unknown: 0
 
 ## 9. commit message convention (subjects reachable from HEAD per dev-standards 第7节; git-side match, ASCII rows)
 
-Commit subjects checked: 41 (non-conventional: 0)
+Commit subjects checked: 49 (non-conventional: 0)
 
 | commit | verdict |
 |---|---|
 | (all conventional or not a git repo) | |
+
+## 10. Agent Skills spec compliance (agentskills.io: name/description constraints + closed frontmatter field set)
+
+Spec violations: 0
+
+| skill | verdict |
+|---|---|
+| (all compliant) | |
 
