@@ -39,7 +39,7 @@ description: "提交与推送（feature 交付流程的最末环节，feature-su
 
 ## 4.1 worktree 清理（强制，本 skill 末尾执行）
 
-提交推送完成并核对通过后，按 speceverything-feature-release-deploy §2.1 的清理规则与检查清单删除该需求的 worktree。
+提交推送完成并核对通过后，**先将需求分支最终状态再次合并到 `develop`**（⑨ 收口文档与收口期修复在 ⑧ 合并之后才产生，无此步则 develop 缺失收口产物），然后按 speceverything-feature-release-deploy §2.1 的清理规则与检查清单删除该需求的 worktree。（出处：F001 试交付发现——收口产物经集成分支可达，否则只存在于需求分支。）
 
 1. 核对停止仅属于该 worktree 的进程，备份需保留的数据、凭据与日志。
 2. 确认无未提交文件后，普通 `git worktree remove` 移除并核对 `git worktree list`。
