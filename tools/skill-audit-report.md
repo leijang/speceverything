@@ -8,19 +8,19 @@ Verdict: **CLEAN** -- refs checked: 89 (broken: 0), assets missing: 0, singular 
 |---|---|---|---|
 | README.md:21 | (runtime doc) | 3 | RUNTIME-DOC |
 | README.md:24 | skills\standard\speceverything-spec-standards\SKILL.md | 9 | OK |
-| README.md:138 | skills\standard\speceverything-spec-standards\SKILL.md | 1 | OK |
-| README.md:138 | skills\standard\speceverything-spec-standards\SKILL.md | 2 | OK |
-| README.md:139 | skills\standard\speceverything-spec-standards\SKILL.md | 3 | OK |
-| README.md:139 | skills\standard\speceverything-spec-standards\SKILL.md | 6 | OK |
-| README.md:141 | skills\feature\speceverything-feature-release-deploy\SKILL.md | 2 | OK |
-| README.md:142 | skills\standard\speceverything-spec-standards\SKILL.md | 10 | OK |
-| README.md:143 | skills\feature\speceverything-feature-release-deploy\SKILL.md | 2.1 | OK |
-| README.md:143 | skills\feature\speceverything-feature-release-deploy\SKILL.md | 2.2 | OK |
-| README.md:146 | skills\feature\speceverything-feature-commit-push\SKILL.md | 3 | OK |
-| README.md:146 | skills\feature\speceverything-feature-commit-push\SKILL.md | 5 | OK |
-| README.md:147 | skills\feature\speceverything-feature-blackbox-test\SKILL.md | 4 | OK |
-| README.md:149 | skills\feature\speceverything-feature-summary\SKILL.md | 7 | OK |
-| README.md:151 | skills\standard\speceverything-spec-standards\SKILL.md | 9 | OK |
+| README.md:140 | skills\standard\speceverything-spec-standards\SKILL.md | 1 | OK |
+| README.md:140 | skills\standard\speceverything-spec-standards\SKILL.md | 2 | OK |
+| README.md:141 | skills\standard\speceverything-spec-standards\SKILL.md | 3 | OK |
+| README.md:141 | skills\standard\speceverything-spec-standards\SKILL.md | 6 | OK |
+| README.md:143 | skills\feature\speceverything-feature-release-deploy\SKILL.md | 2 | OK |
+| README.md:144 | skills\standard\speceverything-spec-standards\SKILL.md | 10 | OK |
+| README.md:145 | skills\feature\speceverything-feature-release-deploy\SKILL.md | 2.1 | OK |
+| README.md:145 | skills\feature\speceverything-feature-release-deploy\SKILL.md | 2.2 | OK |
+| README.md:148 | skills\feature\speceverything-feature-commit-push\SKILL.md | 3 | OK |
+| README.md:148 | skills\feature\speceverything-feature-commit-push\SKILL.md | 5 | OK |
+| README.md:149 | skills\feature\speceverything-feature-blackbox-test\SKILL.md | 4 | OK |
+| README.md:151 | skills\feature\speceverything-feature-summary\SKILL.md | 7 | OK |
+| README.md:153 | skills\standard\speceverything-spec-standards\SKILL.md | 9 | OK |
 | mudules\speceverything-mysql-usage\references\directory-tree.md:48 | skills\feature\speceverything-feature-summary\SKILL.md | 2 | OK |
 | mudules\speceverything-wpf-usage\references\04-performance-and-leaks.md:48 | mudules\speceverything-wpf-usage\references\04-performance-and-leaks.md | 5 | OK |
 | skills\feature\speceverything-feature-blackbox-test\SKILL.md:27 | skills\standard\speceverything-spec-standards\SKILL.md | 2 | OK |
@@ -144,13 +144,13 @@ Verdict: **CLEAN** -- refs checked: 89 (broken: 0), assets missing: 0, singular 
 | speceverything-mysql-usage | 3781 | 1097 | 2021 | 1603 |
 | speceverything-feature-commit-push | 2844 | 1349 | 966 | 1591 |
 | speceverything-project-roadmap-planning | 2768 | 1158 | 981 | 1404 |
-| speceverything-feature-hifi-design | 1915 | 1126 | 473 | 1245 |
+| speceverything-feature-hifi-design | 2167 | 1253 | 565 | 1395 |
 | speceverything-project-requirements-clarification | 1693 | 781 | 604 | 932 |
 | speceverything-project-initialization | 2083 | 645 | 913 | 874 |
 | speceverything-project-tech-stack | 1553 | 573 | 641 | 734 |
 | speceverything-project-product-overview | 1320 | 578 | 481 | 699 |
 | speceverything-project-structure | 1552 | 466 | 798 | 666 |
-| **TOTAL (23 SKILL.md)** | **76472** | **36317** | | **43028** |
+| **TOTAL (23 SKILL.md)** | **76724** | **36444** | | **43178** |
 
 ## 5. mudules/*-usage directory-tree requirement
 
@@ -191,7 +191,7 @@ Index statuses unknown: 0
 
 ## 9. commit message convention (subjects reachable from HEAD per dev-standards 第7节; git-side match, ASCII rows)
 
-Commit subjects checked: 49 (non-conventional: 0)
+Commit subjects checked: 52 (non-conventional: 0)
 
 | commit | verdict |
 |---|---|
