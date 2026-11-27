@@ -46,7 +46,9 @@ function Get-MutateCatalog([string]$Path) {
 
 function Test-MutateBaseline([string]$Root) {
     $problems = New-Object System.Collections.Generic.List[string]
-    $dirty = @(git -C $Root status --porcelain)
+    # BUG-001 family: the report is this harness's own regenerable artifact -- a mid-run report reflecting
+    # the last audit state is never library dirt. Per-file checks (Invoke-RestoreFiles) verify restoration.
+    $dirty = @(git -C $Root status --porcelain | Where-Object { $_ -notmatch 'skill-audit-report\.md' })
     foreach ($d in $dirty) { $problems.Add("git dirty: $d") }
     powershell -NoProfile -ExecutionPolicy Bypass -File (Join-Path $PSScriptRoot 'skill-audit.ps1') -ScanRoot $Root | Out-Null
     if ($LASTEXITCODE -ne 0) { $problems.Add("baseline audit not CLEAN (exit=$LASTEXITCODE)") }
@@ -150,7 +152,9 @@ function Invoke-MutationRun([string]$Root, [object[]]$Cat) {
                 $script:mutateExitCode = 1
                 foreach ($f in $failed) { Write-Output "UNRESTORED: $f" }
             }
-            $dirty = @(git -C $Root status --porcelain)
+            # BUG-001 family: exclude the harness's own report artifact (regenerable, mid-run FINDINGS
+            # state is expected); unrestored implant files are caught by the per-file checks above.
+            $dirty = @(git -C $Root status --porcelain | Where-Object { $_ -notmatch 'skill-audit-report\.md' })
             if ($dirty.Count -gt 0) {
                 $script:mutateExitCode = 1
                 foreach ($d in $dirty) { Write-Output "DIRTY AFTER RESTORE: $d" }
