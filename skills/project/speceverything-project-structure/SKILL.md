@@ -34,7 +34,7 @@ description: "定义项目目录结构。在技术栈确定后使用，基于技
 1. 检查 `specs/` 目录是否存在，若不存在请自动创建。
 2. 读取 `assets/project-structure-template.md` 作为生成基准。
 3. 填好后保存为 `specs/项目结构.md`。
-4. 目录结构确认后，按 speceverything-spec-standards §9 建立初始全局架构 `specs/design/架构.md`（Mermaid：模块职责 + 依赖方向，与目录结构一致）——本 skill 是该资产在 project 链路中的建立者。
+4. 目录结构确认后，按 speceverything-spec-standards §9 建立初始全局架构 `specs/design/架构.md`（Mermaid：模块职责 + 依赖方向，与目录结构一致）——本 skill 是该资产在 project 链路中的建立者。需要对外评审/汇报的高保真架构总览图时，提醒用户可调用 `.agents/skills/diagram-design` 单独出呈现稿（中间态，不替代本文件的 Mermaid 全局图）。
 
 ---
 

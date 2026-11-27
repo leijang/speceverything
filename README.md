@@ -78,7 +78,7 @@ D:\Src\SpecEverything\
 │      └── references/
 │
 └── tools/                           # 机械门禁与复用资产：skill-audit.ps1（十节审计）· skill-mutate.ps1（变异自证）· tests/（24 用例 + golden 锚点）· measure-tokens.py（token 实测校准）· 台账与审计证据；改动 skill 库后先跑审计再提交
-└── .agents/                          # 双层 skills/：23 个指向仓库源目录的 junction（机器本地，不入库）+ 11 个 vendor 第三方 UI skill 包（**入库**，来源/SHA/许可证见 .agents/skills/VENDORED.md，随克隆分发给所有按标准扫描的工具）；worktrees/ = 代理工具临时工作区（内容全忽略）
+└── .agents/                          # 双层 skills/：23 个指向仓库源目录的 junction（机器本地，不入库）+ 12 个 vendor 第三方 skill 包（11 个 UI + diagram-design 架构/流程图，**入库**，来源/SHA/许可证见 .agents/skills/VENDORED.md，随克隆分发给所有按标准扫描的工具）；worktrees/ = 代理工具临时工作区（内容全忽略）
 ```
 
 ## 交付流程（一个需求的完整生命周期）
@@ -94,7 +94,7 @@ D:\Src\SpecEverything\
 
 每个阶段完成时，由该阶段 skill 在完成响应中报告下一阶段（编号 + 名称），由用户决定是否继续——门禁拦的是越级执行，不禁止告知去向。
 
-**设计原则（主导权三层分工）**：每个开发步骤由一个对应的 skill **主导**——它是该步骤唯一的执行主导与产出物定义者；横切纪律由唯一定义处 skill 持有（见下表，冲突以它为准）；第三方过程工具（如 vendor 的 ui-skills）只做受约束的**参与**（一律为中间态，见 hifi-design 产出物节）——参与不改变主导权、强制产出物与定稿门禁。
+**设计原则（主导权三层分工）**：每个开发步骤由一个对应的 skill **主导**——它是该步骤唯一的执行主导与产出物定义者；横切纪律由唯一定义处 skill 持有（见下表，冲突以它为准）；第三方过程工具（如 vendor 的 ui-skills、diagram-design 架构/流程图）只做受约束的**参与**（一律为中间态，见 hifi-design 产出物节与 tech-design 图示增强节）——参与不改变主导权、强制产出物与定稿门禁。
 
 **无 UI 需求的路由**：阶段②（hifi-design）的适用门禁是其注册层 description「需求涉及 UI、界面、页面、交互、原型、设计稿」——纯 CLI/后端需求跳过②，跳过判定在会话中留痕，⑨ 复盘核对路由依据（出处：F001 试交付发现，README 线性流程曾未定义跳过路径）。
 

@@ -59,7 +59,7 @@ Verdict: **CLEAN** -- refs checked: 89 (broken: 0), assets missing: 0, singular 
 | skills\feature\speceverything-feature-summary\SKILL.md:43 | skills\feature\speceverything-feature-summary\SKILL.md | 4.2 | OK |
 | skills\feature\speceverything-feature-summary\SKILL.md:100 | (runtime doc) | 2.4 | RUNTIME-DOC |
 | skills\feature\speceverything-feature-summary\assets\交接文档模板.md:25 | (runtime doc) | 4 | RUNTIME-DOC |
-| skills\feature\speceverything-feature-tech-design\SKILL.md:108 | skills\standard\speceverything-spec-standards\SKILL.md | 9 | OK |
+| skills\feature\speceverything-feature-tech-design\SKILL.md:112 | skills\standard\speceverything-spec-standards\SKILL.md | 9 | OK |
 | skills\project\speceverything-project-dev-standards\SKILL.md:131 | skills\feature\speceverything-feature-summary\SKILL.md | 7 | OK |
 | skills\project\speceverything-project-roadmap-planning\SKILL.md:44 | skills\standard\speceverything-spec-standards\SKILL.md | 4 | OK |
 | skills\project\speceverything-project-structure\SKILL.md:37 | skills\standard\speceverything-spec-standards\SKILL.md | 9 | OK |
@@ -107,7 +107,7 @@ Verdict: **CLEAN** -- refs checked: 89 (broken: 0), assets missing: 0, singular 
 | skills\feature\speceverything-feature-summary\SKILL.md:47 | assets/过程复盘模板.md | OK |
 | skills\feature\speceverything-feature-summary\SKILL.md:116 | assets/交接文档模板.md | OK |
 | skills\feature\speceverything-feature-task-planning\SKILL.md:160 | assets/feature-task-planning-template.md | OK |
-| skills\feature\speceverything-feature-tech-design\SKILL.md:129 | assets/feature-tech-design-template.md | OK |
+| skills\feature\speceverything-feature-tech-design\SKILL.md:133 | assets/feature-tech-design-template.md | OK |
 | skills\project\speceverything-project-dev-standards\SKILL.md:154 | assets/dev-standards-template.md | OK |
 | skills\project\speceverything-project-initialization\SKILL.md:60 | assets/initialization-log-template.md | OK |
 | skills\project\speceverything-project-product-overview\SKILL.md:33 | assets/product-overview-template.md | OK |
@@ -132,8 +132,8 @@ Verdict: **CLEAN** -- refs checked: 89 (broken: 0), assets missing: 0, singular 
 | speceverything-feature-task-planning | 3923 | 2464 | 793 | 2663 |
 | speceverything-feature-code-review | 4510 | 2216 | 1597 | 2616 |
 | speceverything-feature-release-deploy | 4472 | 2201 | 1580 | 2596 |
+| speceverything-feature-tech-design | 3834 | 2259 | 972 | 2502 |
 | speceverything-abp-usage | 5640 | 1672 | 3061 | 2438 |
-| speceverything-feature-tech-design | 3565 | 2125 | 878 | 2345 |
 | speceverything-project-dev-standards | 4306 | 1848 | 1517 | 2228 |
 | speceverything-wpf-usage | 4652 | 1456 | 2436 | 2065 |
 | speceverything-bugfix-workflow | 3045 | 1831 | 634 | 1990 |
@@ -148,9 +148,9 @@ Verdict: **CLEAN** -- refs checked: 89 (broken: 0), assets missing: 0, singular 
 | speceverything-project-requirements-clarification | 1693 | 781 | 604 | 932 |
 | speceverything-project-initialization | 2083 | 645 | 913 | 874 |
 | speceverything-project-tech-stack | 1553 | 573 | 641 | 734 |
+| speceverything-project-structure | 1644 | 510 | 837 | 720 |
 | speceverything-project-product-overview | 1320 | 578 | 481 | 699 |
-| speceverything-project-structure | 1552 | 466 | 798 | 666 |
-| **TOTAL (23 SKILL.md)** | **76724** | **36444** | | **43178** |
+| **TOTAL (23 SKILL.md)** | **77085** | **36622** | | **43389** |
 
 ## 5. mudules/*-usage directory-tree requirement
 
@@ -191,7 +191,7 @@ Index statuses unknown: 0
 
 ## 9. commit message convention (subjects reachable from HEAD per dev-standards 第7节; git-side match, ASCII rows)
 
-Commit subjects checked: 52 (non-conventional: 0)
+Commit subjects checked: 53 (non-conventional: 0)
 
 | commit | verdict |
 |---|---|
