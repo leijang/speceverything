@@ -13,7 +13,7 @@ function New-Sandbox([string]$Name) {
     [IO.File]::WriteAllLines((Join-Path $fx 'skills\beta\SKILL.md'), @('# beta'))
     git -C $fx init | Out-Null
     git -C $fx -c user.name=t -c user.email=t@t add -A | Out-Null
-    git -C $fx -c user.name=t -c user.email=t@t commit -m init | Out-Null
+    git -C $fx -c user.name=t -c user.email=t@t commit -m 'chore: init sandbox library' | Out-Null
     return $fx
 }
 

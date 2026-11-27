@@ -189,3 +189,11 @@ Index statuses unknown: 0
 |---|---|---|
 | F001（审计变异测试） 已完成 | OK |
 
+## 9. commit message convention (subjects reachable from HEAD per dev-standards 第7节; git-side match, ASCII rows)
+
+Commit subjects checked: 36 (non-conventional: 0)
+
+| commit | verdict |
+|---|---|
+| (all conventional or not a git repo) | |
+

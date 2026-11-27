@@ -40,6 +40,32 @@ Describe 'skill-audit section 7: CJK script encoding gate' {
     }
 }
 
+Describe 'skill-audit section 9: commit message convention gate' {
+    It 'flags a non-conventional commit subject in a sandbox' {
+        $fx = Join-Path ([IO.Path]::GetTempPath()) "cmfix-$(Get-Random)"
+        try {
+            New-Item -ItemType Directory -Path (Join-Path $fx 'tools') -Force | Out-Null
+            git -C $fx init | Out-Null
+            [IO.File]::WriteAllText((Join-Path $fx 'tools\x.md'), 'x')
+            git -C $fx -c user.name=t -c user.email=t@t add -A | Out-Null
+            git -C $fx -c user.name=t -c user.email=t@t commit -m '更新了一些东西' | Out-Null
+            [IO.File]::WriteAllText((Join-Path $fx 'tools\y.md'), 'y')
+            git -C $fx -c user.name=t -c user.email=t@t add -A | Out-Null
+            git -C $fx -c user.name=t -c user.email=t@t commit -m 'chore(tools): 正常提交' | Out-Null
+            $report = Invoke-AuditAt $fx
+            $text = [IO.File]::ReadAllText($report)
+            $text | Should Match 'non-conventional: 1'
+            $text | Should Match '\| [0-9a-f]{7,40} \| \*\*NON-CONVENTIONAL\*\* \|'
+        } finally { Remove-Item -Recurse -Force $fx -ErrorAction SilentlyContinue }
+    }
+
+    It 'real repo: every reachable commit subject is conventional' {
+        $report = Invoke-AuditAt ''
+        $text = [IO.File]::ReadAllText($report)
+        $text | Should Match 'Commit subjects checked: \d+ \(non-conventional: 0\)'
+    }
+}
+
 Describe 'skill-audit section 8: feature index status gate' {
     It 'flags an unknown status in a sandbox index' {
         $fx = Join-Path ([IO.Path]::GetTempPath()) "idxfix-$(Get-Random)"
