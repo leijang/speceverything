@@ -10,6 +10,7 @@
 #   6. tools/**/*.ps1 containing CJK must carry a UTF-8 BOM (PS 5.1 else parses as ANSI; specs/错题本.md entry 2).
 #   7. specs/features/index.md statuses must be from the enum owned by spec-standards 第3节 (transition-owner
 #      map kept machine-readable inside check 8 below).
+#   8. Every commit reachable from HEAD carries a Conventional Commits subject per dev-standards 第7节.
 #
 # Usage:   powershell -NoProfile -ExecutionPolicy Bypass -File tools\skill-audit.ps1 [-ScanRoot <path>]
 # Output:  tools/skill-audit-report.md -- regenerated on every run; commit the snapshot as evidence.
@@ -217,7 +218,31 @@ if (Test-Path -LiteralPath $idxPath) {
     }
 }
 
-$clean = ($refBroken -eq 0 -and $assetMissing -eq 0 -and $specHits -eq 0 -and $mudMissing -eq 0 -and $dupHits -eq 0 -and $bomMissing -eq 0 -and $idxBad -eq 0)
+# 9. commit message convention gate (post-hoc): every commit reachable from HEAD must carry a
+#    Conventional Commits subject per dev-standards 第7节 -- types feat/fix/refactor/style/docs/test/
+#    chore/perf/ci, scope optional, subject non-empty. Matching runs on git's side (--invert-grep)
+#    so console codepages cannot corrupt the verdict; report rows stay ASCII (hashes only).
+$cmRows  = New-Object System.Collections.Generic.List[string]
+$cmBad   = 0
+$cmTotal = 0
+if (Test-Path -LiteralPath (Join-Path $root '.git')) {
+    $prevEap = $ErrorActionPreference
+    $ErrorActionPreference = 'Continue'
+    try {
+        $tot = git -C $root rev-list --count HEAD 2>$null
+        if ($LASTEXITCODE -eq 0) { $cmTotal = [int]$tot }
+        if ($cmTotal -gt 0) {
+            $conv = '^(feat|fix|refactor|style|docs|test|chore|perf|ci)(\([^)]+\))?: .+'
+            $badHashes = @(git -C $root log --format=%h --extended-regexp --invert-grep --grep=$conv 2>$null)
+            if ($LASTEXITCODE -eq 0) {
+                $cmBad = $badHashes.Count
+                foreach ($h in $badHashes) { $cmRows.Add("| $h | **NON-CONVENTIONAL** |") }
+            }
+        }
+    } finally { $ErrorActionPreference = $prevEap }
+}
+
+$clean = ($refBroken -eq 0 -and $assetMissing -eq 0 -and $specHits -eq 0 -and $mudMissing -eq 0 -and $dupHits -eq 0 -and $bomMissing -eq 0 -and $idxBad -eq 0 -and $cmBad -eq 0)
 
 $L = New-Object System.Collections.Generic.List[string]
 $L.Add('# Skill Library Mechanical Audit')
@@ -279,7 +304,15 @@ $L.Add('| feature | status | verdict |')
 $L.Add('|---|---|---|')
 if ($idxRows.Count -eq 0) { $L.Add('| (no index file) | | |') } else { foreach ($r in $idxRows) { $L.Add($r) } }
 $L.Add('')
+$L.Add('## 9. commit message convention (subjects reachable from HEAD per dev-standards 第7节; git-side match, ASCII rows)')
+$L.Add('')
+$L.Add("Commit subjects checked: $cmTotal (non-conventional: $cmBad)")
+$L.Add('')
+$L.Add('| commit | verdict |')
+$L.Add('|---|---|')
+if ($cmRows.Count -eq 0) { $L.Add('| (all conventional or not a git repo) | |') } else { foreach ($r in $cmRows) { $L.Add($r) } }
+$L.Add('')
 
 [IO.File]::WriteAllLines($outPath, $L, $utf8BOM)
-Write-Output ("audit done: refs=$refTotal broken=$refBroken assetsMissing=$assetMissing specPaths=$specHits mudTreeMissing=$mudMissing dups=$dupHits bomMissing=$bomMissing idxBad=$idxBad report=$outPath")
+Write-Output ("audit done: refs=$refTotal broken=$refBroken assetsMissing=$assetMissing specPaths=$specHits mudTreeMissing=$mudMissing dups=$dupHits bomMissing=$bomMissing idxBad=$idxBad cmBad=$cmBad report=$outPath")
 if ($clean) { exit 0 } else { exit 1 }
