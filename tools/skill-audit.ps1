@@ -37,8 +37,10 @@ $SS       = [char]0x00A7   # section sign; built via codepoint so this ASCII-onl
 $secRef   = "$SS" + '\s?(\d+(?:\.\d+)?)'
 
 # All markdown files except .git, tools (this script's own output) -- README/specs/skills/mudules are the graph.
+# .agents/ is excluded: it holds Agent-Standard junctions pointing back at skills/ + mudules/ (machine-local,
+# gitignored) -- scanning through them would double-count every file via two paths.
 $mdFiles = Get-ChildItem -Path $root -Recurse -Filter '*.md' |
-    Where-Object { $_.FullName -notmatch '\\(\.git|tools)\\' }
+    Where-Object { $_.FullName -notmatch '\\(\.git|\.agents|tools)\\' }
 
 # Skill dir map: directory name -> SKILL.md path (covers skills/ and mudules/).
 $skillMap = @{}
@@ -242,7 +244,56 @@ if (Test-Path -LiteralPath (Join-Path $root '.git')) {
     } finally { $ErrorActionPreference = $prevEap }
 }
 
-$clean = ($refBroken -eq 0 -and $assetMissing -eq 0 -and $specHits -eq 0 -and $mudMissing -eq 0 -and $dupHits -eq 0 -and $bomMissing -eq 0 -and $idxBad -eq 0 -and $cmBad -eq 0)
+# 10. Agent Skills spec compliance (agentskills.io): per SKILL.md -- name must match the parent dir
+#     (lowercase alnum+hyphens, <=64, no leading/trailing/consecutive hyphens), description 1-1024
+#     chars, and the frontmatter field set is closed (name/description/license/compatibility/
+#     metadata/allowed-tools); extra properties belong under metadata:. Parser covers the single-line
+#     quoted-scalar convention this library uses; multi-line YAML scalars are out of scope.
+$specViolRows = New-Object System.Collections.Generic.List[string]
+$specBad = 0
+$specFields = @('name','description','license','compatibility','metadata','allowed-tools')
+foreach ($f in ($mdFiles | Where-Object { $_.Name -eq 'SKILL.md' })) {
+    $lines = [IO.File]::ReadAllLines($f.FullName, $utf8)
+    if ($lines.Count -lt 2 -or $lines[0].Trim() -ne '---') {
+        $specBad++
+        $rel = $f.FullName.Substring($root.Length + 1)
+        $specViolRows.Add("| $rel | no frontmatter |")
+        continue
+    }
+    $fm = @()
+    for ($i = 1; $i -lt $lines.Count -and $lines[$i].Trim() -ne '---'; $i++) { $fm += $lines[$i] }
+    $top = @{}
+    foreach ($l in $fm) {
+        if ($l -match '^[ \t]') { continue }   # indented = inside a block (e.g. metadata:)
+        if ($l -match '^([A-Za-z-]+):') { $top[$Matches[1]] = $l }
+    }
+    $name = ''
+    if ($top.ContainsKey('name')) { $name = (($top['name'] -replace '^name:\s*', '').Trim()).Trim('"') }
+    $descLen = 0
+    if ($top.ContainsKey('description')) {
+        $d = (($top['description'] -replace '^description:\s*', '').Trim()).Trim('"')
+        $descLen = $d.Length
+    }
+    $dirName = $f.Directory.Name
+    $nameOk = ($name -eq $dirName) -and ($name -cmatch '^[a-z0-9]+(-[a-z0-9]+)*$') -and ($name.Length -le 64)
+    $descOk = ($descLen -ge 1 -and $descLen -le 1024)
+    $extras = @($top.Keys | Where-Object { $specFields -notcontains $_ })
+    $v = 0
+    if (-not $nameOk) { $v++ }
+    if (-not $descOk) { $v++ }
+    if ($extras.Count -gt 0) { $v++ }
+    if ($v -gt 0) {
+        $specBad += $v
+        $why = @()
+        if (-not $nameOk) { $why += "name违例($name)" }
+        if (-not $descOk) { $why += "desc长度=$descLen" }
+        if ($extras.Count -gt 0) { $why += "非标字段:$($extras -join ',')" }
+        $rel = $f.FullName.Substring($root.Length + 1)
+        $specViolRows.Add("| $rel | $($why -join '; ') |")
+    }
+}
+
+$clean = ($refBroken -eq 0 -and $assetMissing -eq 0 -and $specHits -eq 0 -and $mudMissing -eq 0 -and $dupHits -eq 0 -and $bomMissing -eq 0 -and $idxBad -eq 0 -and $cmBad -eq 0 -and $specBad -eq 0)
 
 $L = New-Object System.Collections.Generic.List[string]
 $L.Add('# Skill Library Mechanical Audit')
@@ -312,7 +363,15 @@ $L.Add('| commit | verdict |')
 $L.Add('|---|---|')
 if ($cmRows.Count -eq 0) { $L.Add('| (all conventional or not a git repo) | |') } else { foreach ($r in $cmRows) { $L.Add($r) } }
 $L.Add('')
+$L.Add('## 10. Agent Skills spec compliance (agentskills.io: name/description constraints + closed frontmatter field set)')
+$L.Add('')
+$L.Add("Spec violations: $specBad")
+$L.Add('')
+$L.Add('| skill | verdict |')
+$L.Add('|---|---|')
+if ($specViolRows.Count -eq 0) { $L.Add('| (all compliant) | |') } else { foreach ($r in $specViolRows) { $L.Add($r) } }
+$L.Add('')
 
 [IO.File]::WriteAllLines($outPath, $L, $utf8BOM)
-Write-Output ("audit done: refs=$refTotal broken=$refBroken assetsMissing=$assetMissing specPaths=$specHits mudTreeMissing=$mudMissing dups=$dupHits bomMissing=$bomMissing idxBad=$idxBad cmBad=$cmBad report=$outPath")
+Write-Output ("audit done: refs=$refTotal broken=$refBroken assetsMissing=$assetMissing specPaths=$specHits mudTreeMissing=$mudMissing dups=$dupHits bomMissing=$bomMissing idxBad=$idxBad cmBad=$cmBad specBad=$specBad report=$outPath")
 if ($clean) { exit 0 } else { exit 1 }
