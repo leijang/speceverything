@@ -145,7 +145,7 @@ Verdict: **CLEAN** -- refs checked: 100 (broken: 0), assets missing: 0, singular
 | speceverything-feature-code-review | 4510 | 2216 | 1597 | 2616 |
 | speceverything-feature-tech-design | 3834 | 2259 | 972 | 2502 |
 | speceverything-abp-usage | 5640 | 1672 | 3061 | 2438 |
-| speceverything-spec-standards | 4591 | 1889 | 2004 | 2390 |
+| speceverything-spec-standards | 4622 | 1909 | 2007 | 2411 |
 | speceverything-project-dev-standards | 4306 | 1848 | 1517 | 2228 |
 | speceverything-wpf-usage | 4652 | 1456 | 2436 | 2065 |
 | speceverything-bugfix-workflow | 3060 | 1843 | 632 | 2001 |
@@ -161,7 +161,7 @@ Verdict: **CLEAN** -- refs checked: 100 (broken: 0), assets missing: 0, singular
 | speceverything-project-tech-stack | 1553 | 573 | 641 | 734 |
 | speceverything-project-structure | 1644 | 510 | 837 | 720 |
 | speceverything-project-product-overview | 1320 | 578 | 481 | 699 |
-| **TOTAL (23 SKILL.md)** | **79356** | **38017** | | **44916** |
+| **TOTAL (23 SKILL.md)** | **79387** | **38037** | | **44937** |
 
 ## 5. mudules/*-usage directory-tree requirement
 
@@ -202,7 +202,7 @@ Index statuses unknown: 0
 
 ## 9. commit message convention (subjects reachable from HEAD per dev-standards 第7节; git-side match, ASCII rows)
 
-Commit subjects checked: 71 (non-conventional: 0)
+Commit subjects checked: 72 (non-conventional: 0)
 
 | commit | verdict |
 |---|---|
