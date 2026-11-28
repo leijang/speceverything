@@ -1,26 +1,36 @@
 ﻿# Skill Library Mechanical Audit
 
-Verdict: **CLEAN** -- refs checked: 90 (broken: 0), assets missing: 0, singular spec/ paths: 0, mudules missing tree: 0
+Verdict: **CLEAN** -- refs checked: 100 (broken: 0), assets missing: 0, singular spec/ paths: 0, mudules missing tree: 0
 
 ## 1. Section reference check (skill name + SS number -> target heading exists)
 
 | source file:line | target | ref | status |
 |---|---|---|---|
-| README.md:21 | (runtime doc) | 3 | RUNTIME-DOC |
-| README.md:24 | skills\standard\speceverything-spec-standards\SKILL.md | 9 | OK |
-| README.md:149 | skills\standard\speceverything-spec-standards\SKILL.md | 1 | OK |
-| README.md:149 | skills\standard\speceverything-spec-standards\SKILL.md | 2 | OK |
-| README.md:150 | skills\standard\speceverything-spec-standards\SKILL.md | 3 | OK |
-| README.md:150 | skills\standard\speceverything-spec-standards\SKILL.md | 6 | OK |
-| README.md:152 | skills\feature\speceverything-feature-release-deploy\SKILL.md | 2 | OK |
-| README.md:153 | skills\standard\speceverything-spec-standards\SKILL.md | 10 | OK |
-| README.md:154 | skills\feature\speceverything-feature-release-deploy\SKILL.md | 2.1 | OK |
-| README.md:154 | skills\feature\speceverything-feature-release-deploy\SKILL.md | 2.2 | OK |
-| README.md:157 | skills\feature\speceverything-feature-commit-push\SKILL.md | 3 | OK |
-| README.md:157 | skills\feature\speceverything-feature-commit-push\SKILL.md | 5 | OK |
-| README.md:158 | skills\feature\speceverything-feature-blackbox-test\SKILL.md | 4 | OK |
-| README.md:160 | skills\feature\speceverything-feature-summary\SKILL.md | 7 | OK |
-| README.md:162 | skills\standard\speceverything-spec-standards\SKILL.md | 9 | OK |
+| README.md:19 | README.md | 1 | OK |
+| README.md:20 | README.md | 2 | OK |
+| README.md:21 | README.md | 3 | OK |
+| README.md:22 | README.md | 4 | OK |
+| README.md:23 | README.md | 5 | OK |
+| README.md:24 | README.md | 6 | OK |
+| README.md:25 | README.md | 7 | OK |
+| README.md:26 | README.md | 8 | OK |
+| README.md:27 | README.md | 9 | OK |
+| README.md:28 | README.md | 10 | OK |
+| README.md:92 | (runtime doc) | 3 | RUNTIME-DOC |
+| README.md:95 | skills\standard\speceverything-spec-standards\SKILL.md | 9 | OK |
+| README.md:220 | skills\standard\speceverything-spec-standards\SKILL.md | 1 | OK |
+| README.md:220 | skills\standard\speceverything-spec-standards\SKILL.md | 2 | OK |
+| README.md:221 | skills\standard\speceverything-spec-standards\SKILL.md | 3 | OK |
+| README.md:221 | skills\standard\speceverything-spec-standards\SKILL.md | 6 | OK |
+| README.md:223 | skills\feature\speceverything-feature-release-deploy\SKILL.md | 2 | OK |
+| README.md:224 | skills\standard\speceverything-spec-standards\SKILL.md | 10 | OK |
+| README.md:225 | skills\feature\speceverything-feature-release-deploy\SKILL.md | 2.1 | OK |
+| README.md:225 | skills\feature\speceverything-feature-release-deploy\SKILL.md | 2.2 | OK |
+| README.md:228 | skills\feature\speceverything-feature-commit-push\SKILL.md | 3 | OK |
+| README.md:228 | skills\feature\speceverything-feature-commit-push\SKILL.md | 5 | OK |
+| README.md:229 | skills\feature\speceverything-feature-blackbox-test\SKILL.md | 4 | OK |
+| README.md:231 | skills\feature\speceverything-feature-summary\SKILL.md | 7 | OK |
+| README.md:233 | skills\standard\speceverything-spec-standards\SKILL.md | 9 | OK |
 | mudules\speceverything-mysql-usage\references\directory-tree.md:48 | skills\feature\speceverything-feature-summary\SKILL.md | 2 | OK |
 | mudules\speceverything-wpf-usage\references\04-performance-and-leaks.md:48 | mudules\speceverything-wpf-usage\references\04-performance-and-leaks.md | 5 | OK |
 | skills\feature\speceverything-feature-blackbox-test\SKILL.md:27 | skills\standard\speceverything-spec-standards\SKILL.md | 2 | OK |
@@ -192,7 +202,7 @@ Index statuses unknown: 0
 
 ## 9. commit message convention (subjects reachable from HEAD per dev-standards 第7节; git-side match, ASCII rows)
 
-Commit subjects checked: 61 (non-conventional: 0)
+Commit subjects checked: 64 (non-conventional: 0)
 
 | commit | verdict |
 |---|---|
