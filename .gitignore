@@ -1,6 +1,6 @@
 ﻿# Machine-local under .agents/: first-party skill junctions (point back at git-tracked source dirs),
 # worktrees, and tool state -- none of it enters git. The committed exceptions are the vendored
-# third-party packages (ibelick/ui-skills); provenance in .agents/skills/VENDORED.md.
+# third-party packages (ibelick/ui-skills, cathrynlavery/diagram-design, MiniMax-AI/skills); provenance in .agents/skills/VENDORED.md.
 .agents/*
 !.agents/skills/
 .agents/skills/*
@@ -18,4 +18,23 @@
 !.agents/skills/ui-skills-LICENSE.txt
 !.agents/skills/diagram-design/
 !.agents/skills/diagram-design-LICENSE.txt
+!.agents/skills/android-native-dev/
+!.agents/skills/buddy-sings/
+!.agents/skills/flutter-dev/
+!.agents/skills/frontend-dev/
+!.agents/skills/fullstack-dev/
+!.agents/skills/gif-sticker-maker/
+!.agents/skills/ios-application-dev/
+!.agents/skills/minimax-docx/
+!.agents/skills/minimax-multimodal-toolkit/
+!.agents/skills/minimax-music-gen/
+!.agents/skills/minimax-music-playlist/
+!.agents/skills/minimax-pdf/
+!.agents/skills/minimax-xlsx/
+!.agents/skills/pptx-generator/
+!.agents/skills/react-native-dev/
+!.agents/skills/shader-dev/
+!.agents/skills/vision-analysis/
+!.agents/skills/minimax-skills-LICENSE.txt
+!.agents/skills/minimax-skills-LICENSES-Apache-2.0.txt
 !.agents/skills/VENDORED.md
