@@ -1,6 +1,6 @@
 ﻿# Skill Library Mechanical Audit
 
-Verdict: **CLEAN** -- refs checked: 91 (broken: 0), assets missing: 0, singular spec/ paths: 0, mudules missing tree: 0
+Verdict: **CLEAN** -- refs checked: 90 (broken: 0), assets missing: 0, singular spec/ paths: 0, mudules missing tree: 0
 
 ## 1. Section reference check (skill name + SS number -> target heading exists)
 
@@ -65,7 +65,6 @@ Verdict: **CLEAN** -- refs checked: 91 (broken: 0), assets missing: 0, singular 
 | skills\project\speceverything-project-dev-standards\SKILL.md:131 | skills\feature\speceverything-feature-summary\SKILL.md | 7 | OK |
 | skills\project\speceverything-project-roadmap-planning\SKILL.md:44 | skills\standard\speceverything-spec-standards\SKILL.md | 4 | OK |
 | skills\project\speceverything-project-structure\SKILL.md:37 | skills\standard\speceverything-spec-standards\SKILL.md | 9 | OK |
-| skills\speceverything-bugfix-workflow\SKILL.md:78 | skills\standard\speceverything-spec-standards\SKILL.md | 4 | OK |
 | skills\speceverything-bugfix-workflow\SKILL.md:143 | skills\speceverything-bugfix-workflow\SKILL.md | 2.1 | OK |
 | skills\standard\speceverything-spec-standards\SKILL.md:51 | skills\standard\speceverything-spec-standards\SKILL.md | 4 | OK |
 | skills\standard\speceverything-spec-standards\SKILL.md:61 | skills\feature\speceverything-feature-release-deploy\SKILL.md | 2 | OK |
@@ -139,10 +138,10 @@ Verdict: **CLEAN** -- refs checked: 91 (broken: 0), assets missing: 0, singular 
 | speceverything-spec-standards | 4328 | 1772 | 1884 | 2243 |
 | speceverything-project-dev-standards | 4306 | 1848 | 1517 | 2228 |
 | speceverything-wpf-usage | 4652 | 1456 | 2436 | 2065 |
-| speceverything-bugfix-workflow | 3045 | 1831 | 634 | 1990 |
+| speceverything-bugfix-workflow | 3060 | 1843 | 632 | 2001 |
 | speceverything-feature-blackbox-test | 2910 | 1756 | 661 | 1922 |
 | speceverything-feature-requirements-clarification | 3103 | 1676 | 894 | 1900 |
-| speceverything-feature-evolution | 2667 | 1552 | 724 | 1733 |
+| speceverything-feature-evolution | 2655 | 1546 | 717 | 1726 |
 | speceverything-mysql-usage | 3781 | 1097 | 2021 | 1603 |
 | speceverything-feature-commit-push | 2844 | 1349 | 966 | 1591 |
 | speceverything-feature-hifi-design | 2415 | 1418 | 610 | 1571 |
@@ -152,7 +151,7 @@ Verdict: **CLEAN** -- refs checked: 91 (broken: 0), assets missing: 0, singular 
 | speceverything-project-tech-stack | 1553 | 573 | 641 | 734 |
 | speceverything-project-structure | 1644 | 510 | 837 | 720 |
 | speceverything-project-product-overview | 1320 | 578 | 481 | 699 |
-| **TOTAL (23 SKILL.md)** | **78892** | **37761** | | **44621** |
+| **TOTAL (23 SKILL.md)** | **78895** | **37767** | | **44625** |
 
 ## 5. mudules/*-usage directory-tree requirement
 
@@ -193,7 +192,7 @@ Index statuses unknown: 0
 
 ## 9. commit message convention (subjects reachable from HEAD per dev-standards 第7节; git-side match, ASCII rows)
 
-Commit subjects checked: 57 (non-conventional: 0)
+Commit subjects checked: 58 (non-conventional: 0)
 
 | commit | verdict |
 |---|---|
